@@ -1,0 +1,80 @@
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font: bold;
+    margin-left: 10px;
+}
+
+#loading {
+    margin: 200px;
+}
+
+#balken rect {
+    fill: #00457D;
+}
+
+#hinweis {
+    font: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em;
+    color: white;
+    background-color: #E6444F;
+    border: 2px solid black;
+    width: 120px;
+    padding: 20px;
+    margin-right: 50px;
+    margin-top: 100px;
+}
+
+#balken_vertical,
+#balken_horizontal {
+    font-family: 'Times New Roman', Times, serif;
+    fill: black;
+    text-anchor: middle;
+}
+
+g.label>text.label_text,
+g.bar>text.bar_text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em;
+    text-anchor: start;
+    fill: white;
+}
+
+text#pie_text {
+    text-anchor: middle;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table#table {
+    border-collapse: collapse;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+
+table#table,
+th,
+td {
+    border: 2px solid black;
+}
+
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/* g.tag>text.tag_text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em;
+    text-anchor: start;
+    fill: white;
+} */
+
+#anycolor {
+    background: #00457D;
+    background: #FFD300;
+    background: #97BF0D;
+    background: #E6444F;
+    background: #878783;
+}
