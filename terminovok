@@ -1,0 +1,147 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+# @prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix adms: <http://www.w3.org/ns/adms#>.
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+@prefix tmv: <http://zhangsorcerer.github.io/terminovok#>.
+
+# Meta-Data of this Vacabulary
+<http://zhangsorcerer.github.io/terminovok> rdf:type owl:Ontology, adms:Asset;
+    dct:title "Terminology Management Vocabulary"@en;
+    dct:description "The Terminology Management Vocabulary (tmv) is designed as the database of the Terminology Management Project in the Master-Thesis of Weilong ZHANG, the contents of this Vacabulary are the Terminologies within the field of higher education."@en;
+    dct:created "2019-08-29"^^xsd:date;
+    dct:modified "2019-09-01"^^xsd:date;
+    vann:preferredNamespacePrefix "tmv";
+    dct:type <http://purl.org/adms/assettype/Ontology>;
+    dct:status <http://purl.org/adms/status/UnderDevelopment>.
+
+# Scheme of English-Concepts
+tmv:termino_en  rdf:type    skos:ConceptScheme;
+                dct:title    "Terms in English"@en;
+                dct:created "2019-08-29"^^xsd:date.
+
+# Schema der deutschen Konzepte
+tmv:termino_de  rdf:type    skos:ConceptScheme;
+                dct:title    "Termini auf Deutsch"@de;
+                dct:created "2019-08-29"^^xsd:date.
+
+# Created sub-property of skos:definition: "short description"
+tmv:shortDescription rdf:type owl:DatatypeProperty, rdf:Property;
+                     rdfs:label "short description"@en;
+                     rdfs:comment "Provide a description of a concept within 10 words."@en;
+                     rdfs:domain skos:Concept;
+                     refs:subPropertyOf skos:definition.                
+
+# Created sub-property of skos:definition: "medium description"
+tmv:mediumDescription rdf:type owl:DatatypeProperty, rdf:Property;
+                      rdfs:label "medium description"@en;
+                      rdfs:comment "Provide a description of a concept within 1 or 2 Sentence(s)."@en;
+                      rdfs:domain skos:Concept;
+                      refs:subPropertyOf skos:definition.
+
+# Created sub-property of skos:definition: "long description"
+tmv:longDescription rdf:type owl:DatatypeProperty, rdf:Property;
+                    rdfs:label "long description"@en;
+                    rdfs:comment "Provide a description of a concept within a long Paragraph consisting of several sentences."@en;
+                    rdfs:domain skos:Concept;
+                    refs:subPropertyOf skos:definition.
+
+# Example of exactMatch
+# electronics: Elektronik f.
+tmv:term_001  rdf:type        skos:Concept;
+              skos:prefLabel  "electronics"@en;
+              skos:inScheme   tmv:termino_en;
+              skos:exactMatch tmv:term_002.
+
+tmv:term_002  ref:type        skos:Concept;
+              skos:prefLabel  "Elektronik"@de;
+              skos:inScheme   tmv:termino_de;
+              skos:exactMatch tmv:term_001.
+# [German Academic Exchange Service (DAAD) (2013): Dictionary: Higher Education Terminology. Section: Information for Germans on Studying and Researching Abroad. p.39]
+# "Informatik"?
+
+# Example of closeMatch
+# edition: Auflage f. (Bücher) / Ausgabe f. (Zeitschrift)
+tmv:term_003  rdf:type        skos:Concept;
+              skos:prefLabel  "edition"@en;
+              skos:inScheme   tmv:termino_en;
+              skos:closeMatch tmv:term_004;
+              skos:closeMatch tmv:term_005.
+
+tmv:term_004  ref:type        skos:Concept;
+              skos:prefLabel  "Auflage"@de;
+              skos:scopeNote  "Bücher"@de;
+              skos:inScheme   tmv:termino_de;
+              skos:closeMatch tmv:term_003.
+
+tmv:term_005  rdf:type        skos:Concept;
+              skos:prefLabel  "Ausgabe"@de;
+              skos:scopeNote  "Zeitschriften"@de;
+              skos:inScheme   tmv:termino_de;
+              skos:closeMatch tmv:term_003.
+# [German Academic Exchange Service (DAAD) (2013): Dictionary: Higher Education Terminology. Section: Information for Germans on Studying and Researching Abroad. p.38]
+# "Professor"
+
+# Example of relatedMatch (broadMatch)
+# ECTS (European Credit Transfer and Accumulation System):
+# Credit points (ECTS) / Leistungsnachweis m. / Schein m.
+tmv:term_006 rdf:type skos:Concept;
+             skos:prefLabel "ECTS"@en;
+             skos:altLabel  "Credit Points"@en;
+             skos:altLabel  "Credits"@en;
+             skos:altLabel  "Proof of academic achievement"@en;
+             tmv:shortDescription "European Credit Transfer and Accumulation System"@en;
+             tmv:mediumDescription "ECTS is designed to make it easier for students to move between countries and to have their academic qualifications and study periods abroad recognised."@en;
+             tmv:longDescription "European Credit Transfer and Accumulation System (ECTS) credits are a standard means for comparing 'the volume of learning based on the defined learning outcomes and their associated workload' for higher education across the European Union and other collaborating European countries[1]. For successfully completed studies, ECTS credits are awarded. One academic year corresponds to 60 ECTS credits that are normally equivalent to 1500–1800 hours of total workload, irrespective of standard or qualification type. ECTS credits are used to facilitate transfer and progression throughout the Union."@en;
+             foaf:depiction <https://upload.wikimedia.org/wikipedia/de/6/63/ECTS.jpg>;
+             skos:inScheme  tmv:termino_en;
+             skos:relatedMatch tmv:term_007;
+             skos:relatedMatch tmv:term_008;
+             skos:relatedMatch tmv:term_009;
+             skos:relatedMatch tmv:term_010.
+
+<https://upload.wikimedia.org/wikipedia/de/6/63/ECTS.jpg> rdf:type foaf:Image.
+
+tmv:term_007  ref:type        skos:Concept;
+              skos:prefLabel  "Leistungsnachweis"@de;
+              skos:inScheme   tmv:termino_de;
+              skos:related    tmv:term008;
+              skos:related    tmv:term009;
+              skos:related    tmv:term010;
+              skos:relatedMatch tmv:term_006.
+
+tmv:term_008  ref:type        skos:Concept;
+              skos:prefLabel  "Schein"@de;
+              skos:inScheme   tmv:termino_de;
+              skos:related    tmv:term007;
+              skos:related    tmv:term009;
+              skos:related    tmv:term010;
+              skos:relatedMatch tmv:term_006.
+
+tmv:term_009  ref:type        skos:Concept;
+              skos:prefLabel  "Leistungspunkte"@de;
+              skos:altLabel   "LP"@de;
+              skos:inScheme   tmv:termino_de;
+              skos:related    tmv:term007;
+              skos:related    tmv:term008;
+              skos:related    tmv:term010;
+              skos:relatedMatch tmv:term_006.
+
+tmv:term_010  ref:type        skos:Concept;
+              skos:prefLabel  "Kreditpunkte"@de;
+              skos:altLabel   "KP"@de;
+              skos:inScheme   tmv:termino_de;
+              skos:related    tmv:term007;
+              skos:related    tmv:term008;
+              skos:related    tmv:term009;
+              skos:relatedMatch tmv:term_006.
+# [German Academic Exchange Service (DAAD) (2013): Dictionary: Higher Education Terminology. Section: Information for Germans on Studying and Researching Abroad. p.38-en 81-de]
+# "Lehrstuhl" & "chair"
+# https://upload.wikimedia.org/wikipedia/de/6/63/ECTS.jpg 
