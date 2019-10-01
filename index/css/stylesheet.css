@@ -5,9 +5,9 @@
 
 body {
     background-color: rgb(177, 205, 226);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times,"Microsoft YaHei", "微软雅黑", "华文细黑", serif;
     font-size: 0.5em;
-    padding-top: 20px;
+    padding-top: 50px;
     padding-bottom: 120px;
 }
 
@@ -15,7 +15,7 @@ h1,
 h2,
 h3 {
     color: rgb(44, 76, 124);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times,"Microsoft YaHei", "微软雅黑", "华文细黑", serif;
     font-weight: bold;
 }
 
@@ -25,7 +25,7 @@ h1 {
 
 h2 {
     font-size: 4em;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 h3 {
@@ -44,7 +44,7 @@ nav {
 }
 
 nav>div {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times,"Microsoft YaHei", "微软雅黑", "华文细黑", serif;
     font-size: 2em;
     margin-right: 12px;
     color: rgb(44, 76, 124);
