@@ -23,9 +23,17 @@ h1 {
     font-size: 6em;
 }
 
+h1.zh {
+    font-size: 5.3em;
+}
+
 h2 {
     font-size: 4em;
     margin-top: 20px;
+}
+
+h2.zh {
+    font-size: 3.3em;
 }
 
 h3 {
