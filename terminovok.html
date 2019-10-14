@@ -1,0 +1,2454 @@
+<html>
+
+<head>
+    <title>Terminology Management Vocabulary</title>
+</head>
+
+<body>
+    <pre style="word-wrap: break-word; white-space: pre-wrap;">
+@prefix : &lt;http://zhangsorcerer.github.io/terminovok#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix skosxl: &lt;http://www.w3.org/2008/05/skos-xl#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+@prefix adms: &lt;http://www.w3.org/ns/adms#&gt; .
+@prefix vann: &lt;http://purl.org/vocab/vann/&gt; .
+@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix tmv: &lt;http://zhangsorcerer.github.io/terminovok#&gt; .
+@base &lt;http://zhangsorcerer.github.io/terminovok&gt; .
+
+# Meta-Data of this Vacabulary
+&lt;http://zhangsorcerer.github.io/terminovok&gt; rdf:type owl:Ontology, adms:Asset ;
+    owl:imports &lt;http://www.w3.org/2004/02/skos/core&gt; ,
+                &lt;http://www.w3.org/2008/05/skos-xl&gt; ;
+    dct:title       "Terminology Management Vocabulary"@en ;
+    dct:description "The Terminology Management Vocabulary (tmv) is designed as the database of the Terminology Management Project in the Master-Thesis of Weilong ZHANG, the contents of this Vacabulary are the Terminologies within the field of higher education."@en ,
+                    "An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities."@en ;
+    dct:created     "2019-08-29"^^xsd:date ;
+    dct:modified    "2019-09-01"^^xsd:date ;
+	dct:modified    "2019-10-09T15:00:20+02:00"^^xsd:dateTime ;
+	dct:modified    "2019-10-10T22:40:36+02:00"^^xsd:dateTime ;
+	dct:modified    "2019-10-12T22:50:54+02:00"^^xsd:dateTime ;
+    dct:creator     "Weilong ZHANG"@en ;
+    vann:preferredNamespacePrefix "tmv" ;
+    dct:type        &lt;http://purl.org/adms/assettype/Ontology&gt; ;
+    dct:status      &lt;http://purl.org/adms/status/UnderDevelopment&gt; ;
+    rdfs:seeAlso &lt;http://www.w3.org/2008/05/skos&gt; .
+
+# Scheme of English-Concepts
+tmv:termino_en  rdf:type    skos:ConceptScheme;
+                dct:title    "Terms in English"@en;
+                dct:created  "2019-08-29"^^xsd:date.
+
+# Schema der deutschen Konzepte
+tmv:termino_de  rdf:type    skos:ConceptScheme;
+                dct:title    "Termini auf Deutsch"@de;
+                dct:created  "2019-08-29"^^xsd:date.
+
+# Created sub-property of skos:notation i.e. "Genus"
+tmv:genus  rdf:type            owl:DatatypeProperty, rdf:Property;
+           rdfs:label          "Genus"@de;
+           skos:definition     "das grammatische geschlecht"@de;
+           rdfs:domain         skosxl:Label;
+           rdfs:subPropertyOf  skos:notation;
+           dct:created         "2019-09-23"^^xsd:date;
+           dct:modified        "2019-10-08"^^xsd:date.
+
+# Created sub-property of skos:scopeNote i.e "context of usage"
+tmv:context  rdf:type            owl:AnnotationProperty, rdf:Property;
+             rdfs:label          "context of usage"@en;
+             skos:definition     "Label the contexts under which the given Term corresponds to the definition."@en;
+             rdfs:domain         skos:Concept;
+             rdfs:subPropertyOf  skos:scopeNote;
+             dct:created         "2019-09-23"^^xsd:date.
+
+# Created sub-property of skos:definition, i.e. short definition
+tmv:shortDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
+                     skos:definition "Provide a definition of a concept within 10 words."@en ;
+                     rdfs:label "short definition"@en ;
+                     rdfs:subPropertyOf skos:definition ;
+                     rdfs:domain skos:Concept ;
+                     dct:created  "2019-08-29"^^xsd:date;
+                     dct:modified "2019-10-08"^^xsd:date.             
+
+# Created sub-property of skos:definition, i.e. medium definition
+tmv:mediumDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
+                     skos:definition "Provide a definition of a concept within 1 or 2 Sentence(s)."@en ;
+                     rdfs:label "medium definition"@en ;
+                     rdfs:subPropertyOf skos:definition ;
+                     rdfs:domain skos:Concept ;
+                     dct:created  "2019-08-29"^^xsd:date;
+                     dct:modified "2019-10-08"^^xsd:date.
+
+# Created sub-property of skos:definition, i.e. long definition
+tmv:longDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
+                   skos:definition "Provide a definition of a concept within a long Paragraph consisting of several sentences."@en ;
+                   rdfs:label "long definition"@en ;
+                   rdfs:subPropertyOf skos:definition ;
+                   rdfs:domain skos:Concept ;
+                   dct:created  "2019-08-29"^^xsd:date;
+                   dct:modified "2019-10-08"^^xsd:date.
+
+####### Individuals (1 to 1 mapping)
+
+tmv:label_de_universitaet rdf:type skosxl:Label ;
+		 skosxl:literalForm "Universität"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_university rdf:type skosxl:Label ;
+		 skosxl:literalForm "University"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_f3a853ac rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_universitaet ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_8714289d rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_university ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_f3a853ac skos:exactMatch tmv:term_en_8714289d .
+
+tmv:term_en_8714289d skos:exactMatch tmv:term_de_f3a853ac .
+
+tmv:label_de_universitaet_bamberg rdf:type skosxl:Label ;
+		 skosxl:literalForm "Universität Bamberg"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_university_of_bamberg rdf:type skosxl:Label ;
+		 skosxl:literalForm "University of Bamberg"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_2ad40d5c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_universitaet_bamberg ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_2111fb86 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_university_of_bamberg ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_2ad40d5c skos:exactMatch tmv:term_en_2111fb86 .
+
+tmv:term_en_2111fb86 skos:exactMatch tmv:term_de_2ad40d5c .
+
+tmv:label_de_familiengerechte_hochschule rdf:type skosxl:Label ;
+		 skosxl:literalForm "Familiengerechte Hochschule"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_family_friendly_university rdf:type skosxl:Label ;
+		 skosxl:literalForm "Family-Friendly University"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_987a0b41 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_familiengerechte_hochschule ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_dd7db25b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_family_friendly_university ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_987a0b41 skos:exactMatch tmv:term_en_dd7db25b .
+
+tmv:term_en_dd7db25b skos:exactMatch tmv:term_de_987a0b41 .
+
+tmv:label_de_kulturelles_engagement rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kulturelles Engagement"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_cultural_university rdf:type skosxl:Label ;
+		 skosxl:literalForm "Cultural University"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_4205c893 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kulturelles_engagement ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_450b543b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_cultural_university ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_4205c893 skos:exactMatch tmv:term_en_450b543b .
+
+tmv:term_en_450b543b skos:exactMatch tmv:term_de_4205c893 .
+
+tmv:label_de_zertifikat rdf:type skosxl:Label ;
+		 skosxl:literalForm "Zertifikat"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_certificates rdf:type skosxl:Label ;
+		 skosxl:literalForm "Certificates"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_ea2cf2db rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_zertifikat ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_6f9f2a3b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_certificates ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_ea2cf2db skos:exactMatch tmv:term_en_6f9f2a3b .
+
+tmv:term_en_6f9f2a3b skos:exactMatch tmv:term_de_ea2cf2db .
+
+tmv:label_de_uni_publicationen rdf:type skosxl:Label ;
+		 skosxl:literalForm "Uni-Publicationen"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_university_publications rdf:type skosxl:Label ;
+		 skosxl:literalForm "University Publications"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_86ceb376 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_uni_publicationen ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_e673e729 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_university_publications ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_86ceb376 skos:exactMatch tmv:term_en_e673e729 .
+
+tmv:term_en_e673e729 skos:exactMatch tmv:term_de_86ceb376 .
+
+tmv:label_de_image_publikationen rdf:type skosxl:Label ;
+		 skosxl:literalForm "Image-Publikationen"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_image_publications rdf:type skosxl:Label ;
+		 skosxl:literalForm "Image Publications"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_b885243b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_image_publikationen ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_2c88a097 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_image_publications ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_b885243b skos:exactMatch tmv:term_en_2c88a097 .
+
+tmv:term_en_2c88a097 skos:exactMatch tmv:term_de_b885243b .
+
+tmv:label_de_wohnheim rdf:type skosxl:Label ;
+		 skosxl:literalForm "Wohnheim"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_dormitoriy rdf:type skosxl:Label ;
+		 skosxl:literalForm "Dormitoriy"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_b75136ca rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_wohnheim ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_77dd7008 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_dormitoriy ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_b75136ca skos:exactMatch tmv:term_en_77dd7008 .
+
+tmv:term_en_77dd7008 skos:exactMatch tmv:term_de_b75136ca .
+
+tmv:label_de_mensa rdf:type skosxl:Label ;
+		 skosxl:literalForm "Mensa"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_canteens rdf:type skosxl:Label ;
+		 skosxl:literalForm "Canteens"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_5dd3fcaf rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_mensa ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_744edf12 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_canteens ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_5dd3fcaf skos:exactMatch tmv:term_en_744edf12 .
+
+tmv:term_en_744edf12 skos:exactMatch tmv:term_de_5dd3fcaf .
+
+tmv:label_de_cafeteria rdf:type skosxl:Label ;
+		 skosxl:literalForm "Cafeteria"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_cafeterias rdf:type skosxl:Label ;
+		 skosxl:literalForm "Cafeterias"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_66d29e06 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_cafeteria ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_9a54aed7 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_cafeterias ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_66d29e06 skos:exactMatch tmv:term_en_9a54aed7 .
+
+tmv:term_en_9a54aed7 skos:exactMatch tmv:term_de_66d29e06 .
+
+tmv:label_de_fakultaet rdf:type skosxl:Label ;
+		 skosxl:literalForm "Fakultät"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_faculty rdf:type skosxl:Label ;
+		 skosxl:literalForm "Faculty"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_28bf7e1b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_fakultaet ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_bb1dceef rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_faculty ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_28bf7e1b skos:exactMatch tmv:term_en_bb1dceef .
+
+tmv:term_en_bb1dceef skos:exactMatch tmv:term_de_28bf7e1b .
+
+tmv:label_de_studium rdf:type skosxl:Label ;
+		 skosxl:literalForm "Studium"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_studies rdf:type skosxl:Label ;
+		 skosxl:literalForm "Studies"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_9403703f rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_studium ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_7d56f012 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_studies ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_9403703f skos:exactMatch tmv:term_en_7d56f012 .
+
+tmv:term_en_7d56f012 skos:exactMatch tmv:term_de_9403703f .
+
+tmv:label_de_institut rdf:type skosxl:Label ;
+		 skosxl:literalForm "Institut"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_institute rdf:type skosxl:Label ;
+		 skosxl:literalForm "Institute"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_68900902 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_institut ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_0654ed2e rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_institute ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_68900902 skos:exactMatch tmv:term_en_0654ed2e .
+
+tmv:term_en_0654ed2e skos:exactMatch tmv:term_de_68900902 .
+
+tmv:label_de_einrichtungen_organe rdf:type skosxl:Label ;
+		 skosxl:literalForm "Einrichtungen &amp; Organe"@de ;
+		 tmv:genus "pl,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_administration_institutions rdf:type skosxl:Label ;
+		 skosxl:literalForm "Administration &amp; Institutions"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_3549c6c6 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_einrichtungen_organe ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_b655e4fb rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_administration_institutions ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_3549c6c6 skos:exactMatch tmv:term_en_b655e4fb .
+
+tmv:term_en_b655e4fb skos:exactMatch tmv:term_de_3549c6c6 .
+
+tmv:label_de_forschung rdf:type skosxl:Label ;
+		 skosxl:literalForm "Forschung"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_resarch rdf:type skosxl:Label ;
+		 skosxl:literalForm "Resarch"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6107d974 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_forschung ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_77d11796 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_resarch ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6107d974 skos:exactMatch tmv:term_en_77d11796 .
+
+tmv:term_en_77d11796 skos:exactMatch tmv:term_de_6107d974 .
+
+tmv:label_de_wissenstransfer rdf:type skosxl:Label ;
+		 skosxl:literalForm "Wissenstransfer"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_knowledge_transfer rdf:type skosxl:Label ;
+		 skosxl:literalForm "Knowledge Transfer"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_825c0884 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_wissenstransfer ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_e49438e5 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_knowledge_transfer ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_825c0884 skos:exactMatch tmv:term_en_e49438e5 .
+
+tmv:term_en_e49438e5 skos:exactMatch tmv:term_de_825c0884 .
+
+tmv:label_de_leitung rdf:type skosxl:Label ;
+		 skosxl:literalForm "Leitung"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_university_governance rdf:type skosxl:Label ;
+		 skosxl:literalForm "University Governance"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_204c541c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_leitung ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_d6fd3322 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_university_governance ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_204c541c skos:exactMatch tmv:term_en_d6fd3322 .
+
+tmv:term_en_d6fd3322 skos:exactMatch tmv:term_de_204c541c .
+
+tmv:label_de_universitaetsleitung rdf:type skosxl:Label ;
+		 skosxl:literalForm "Universitätsleitung"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_university_board_of_management rdf:type skosxl:Label ;
+		 skosxl:literalForm "University Board of Management"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_ffdaf9e5 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_universitaetsleitung ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_5b21f034 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_university_board_of_management ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_ffdaf9e5 skos:exactMatch tmv:term_en_5b21f034 .
+
+tmv:term_en_5b21f034 skos:exactMatch tmv:term_de_ffdaf9e5 .
+
+tmv:label_de_stellenplanung rdf:type skosxl:Label ;
+		 skosxl:literalForm "Stellenplanung"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_staff_appointment_planning rdf:type skosxl:Label ;
+		 skosxl:literalForm "Staff Appointment Planning"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_c7342662 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_stellenplanung ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_c03594e1 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_staff_appointment_planning ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_c7342662 skos:exactMatch tmv:term_en_c03594e1 .
+
+tmv:term_en_c03594e1 skos:exactMatch tmv:term_de_c7342662 .
+
+tmv:label_de_personalhaushalt rdf:type skosxl:Label ;
+		 skosxl:literalForm "Personalhaushalt"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_personnel_budget rdf:type skosxl:Label ;
+		 skosxl:literalForm "Personnel Budget"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_04fabc2a rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_personalhaushalt ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_9bc842ea rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_personnel_budget ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_04fabc2a skos:exactMatch tmv:term_en_9bc842ea .
+
+tmv:term_en_9bc842ea skos:exactMatch tmv:term_de_04fabc2a .
+
+tmv:label_de_justitiariat rdf:type skosxl:Label ;
+		 skosxl:literalForm "Justitiariat"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_legal_affairs rdf:type skosxl:Label ;
+		 skosxl:literalForm "Legal Affairs"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_fdab0270 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_justitiariat ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_608e689e rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_legal_affairs ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_fdab0270 skos:exactMatch tmv:term_en_608e689e .
+
+tmv:term_en_608e689e skos:exactMatch tmv:term_de_fdab0270 .
+
+tmv:label_de_innenrevision rdf:type skosxl:Label ;
+		 skosxl:literalForm "Innenrevision"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_internal_auditing rdf:type skosxl:Label ;
+		 skosxl:literalForm "Internal Auditing"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_c1e302b7 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_innenrevision ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_65bbe18b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_internal_auditing ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_c1e302b7 skos:exactMatch tmv:term_en_65bbe18b .
+
+tmv:term_en_65bbe18b skos:exactMatch tmv:term_de_c1e302b7 .
+
+tmv:label_de_zentrale_dezernate rdf:type skosxl:Label ;
+		 skosxl:literalForm "Zentrale Dezernate"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_central_divisions rdf:type skosxl:Label ;
+		 skosxl:literalForm "Central Divisions"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_25d8e892 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_zentrale_dezernate ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_665a6609 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_central_divisions ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_25d8e892 skos:exactMatch tmv:term_en_665a6609 .
+
+tmv:term_en_665a6609 skos:exactMatch tmv:term_de_25d8e892 .
+
+tmv:label_de_abteilung rdf:type skosxl:Label ;
+		 skosxl:literalForm "Abteilung"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_department rdf:type skosxl:Label ;
+		 skosxl:literalForm "Department"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_58937f52 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_abteilung ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_056e0b78 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_department ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_58937f52 skos:exactMatch tmv:term_en_056e0b78 .
+
+tmv:term_en_056e0b78 skos:exactMatch tmv:term_de_58937f52 .
+
+tmv:label_de_universitaetsarchiv rdf:type skosxl:Label ;
+		 skosxl:literalForm "Universitätsarchiv"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_university_archives rdf:type skosxl:Label ;
+		 skosxl:literalForm "University Archives"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e90cf3f7 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_universitaetsarchiv ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_85499eec rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_university_archives ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e90cf3f7 skos:exactMatch tmv:term_en_85499eec .
+
+tmv:term_en_85499eec skos:exactMatch tmv:term_de_e90cf3f7 .
+
+tmv:label_de_forschungsfoerderung_transfer rdf:type skosxl:Label ;
+		 skosxl:literalForm "Forschungsförderung &amp; Transfer"@de ;
+		 tmv:genus "f,m"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_research_aid_transfer rdf:type skosxl:Label ;
+		 skosxl:literalForm "Research Aid &amp; Transfer"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_185d9cd5 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_forschungsfoerderung_transfer ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_d4c50f1c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_research_aid_transfer ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_185d9cd5 skos:exactMatch tmv:term_en_d4c50f1c .
+
+tmv:term_en_d4c50f1c skos:exactMatch tmv:term_de_185d9cd5 .
+
+tmv:label_de_innere_angelegenheiten_zentrale_aufgaben rdf:type skosxl:Label ;
+		 skosxl:literalForm "Innere Angelegenheiten &amp; Zentrale Aufgaben"@de ;
+		 tmv:genus "pl,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_internal_affairs_and_operations rdf:type skosxl:Label ;
+		 skosxl:literalForm "Internal Affairs and Operations"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e31568fa rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_innere_angelegenheiten_zentrale_aufgaben ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_720ba8e0 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_internal_affairs_and_operations ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e31568fa skos:exactMatch tmv:term_en_720ba8e0 .
+
+tmv:term_en_720ba8e0 skos:exactMatch tmv:term_de_e31568fa .
+
+tmv:label_de_kommunikation_alumni rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kommunikation &amp; Alumni"@de ;
+		 tmv:genus "f,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_communication_and_alumni rdf:type skosxl:Label ;
+		 skosxl:literalForm "Communication and Alumni"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_16e99095 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kommunikation_alumni ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_d7ae4688 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_communication_and_alumni ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_16e99095 skos:exactMatch tmv:term_en_d7ae4688 .
+
+tmv:term_en_d7ae4688 skos:exactMatch tmv:term_de_16e99095 .
+
+tmv:label_de_planung_qualitaetsmanagement rdf:type skosxl:Label ;
+		 skosxl:literalForm "Planung &amp; Qualitätsmanagement"@de ;
+		 tmv:genus "f,n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_planning_quality_management rdf:type skosxl:Label ;
+		 skosxl:literalForm "Planning &amp; Quality Management"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e27edfae rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_planung_qualitaetsmanagement ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_978cf69c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_planning_quality_management ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e27edfae skos:exactMatch tmv:term_en_978cf69c .
+
+tmv:term_en_978cf69c skos:exactMatch tmv:term_de_e27edfae .
+
+tmv:label_de_personal rdf:type skosxl:Label ;
+		 skosxl:literalForm "Personal"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_human_resources rdf:type skosxl:Label ;
+		 skosxl:literalForm "Human Resources"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_f3d31cbc rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_personal ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_6f19ed1b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_human_resources ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_f3d31cbc skos:exactMatch tmv:term_en_6f19ed1b .
+
+tmv:term_en_6f19ed1b skos:exactMatch tmv:term_de_f3d31cbc .
+
+tmv:label_de_gremien rdf:type skosxl:Label ;
+		 skosxl:literalForm "Gremien"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_govering_bodies rdf:type skosxl:Label ;
+		 skosxl:literalForm "Govering bodies"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_19a8f436 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_gremien ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_d4b38910 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_govering_bodies ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_19a8f436 skos:exactMatch tmv:term_en_d4b38910 .
+
+tmv:term_en_d4b38910 skos:exactMatch tmv:term_de_19a8f436 .
+
+tmv:label_de_universitaetsrat rdf:type skosxl:Label ;
+		 skosxl:literalForm "Universitätsrat"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_the_university_council rdf:type skosxl:Label ;
+		 skosxl:literalForm "The University Council"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_d25b1a16 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_universitaetsrat ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_5c8d47e5 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_the_university_council ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_d25b1a16 skos:exactMatch tmv:term_en_5c8d47e5 .
+
+tmv:term_en_5c8d47e5 skos:exactMatch tmv:term_de_d25b1a16 .
+
+tmv:label_de_senat rdf:type skosxl:Label ;
+		 skosxl:literalForm "Senat"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_senate rdf:type skosxl:Label ;
+		 skosxl:literalForm "Senate"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_40509215 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_senat ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_72861a91 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_senate ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_40509215 skos:exactMatch tmv:term_en_72861a91 .
+
+tmv:term_en_72861a91 skos:exactMatch tmv:term_de_40509215 .
+
+tmv:label_de_kuratorium rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kuratorium"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_the_advisory_board rdf:type skosxl:Label ;
+		 skosxl:literalForm "The Advisory board"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_dd271b1f rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kuratorium ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_87875617 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_the_advisory_board ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_dd271b1f skos:exactMatch tmv:term_en_87875617 .
+
+tmv:term_en_87875617 skos:exactMatch tmv:term_de_dd271b1f .
+
+tmv:label_de_geistes__und_kulturwissenschaften rdf:type skosxl:Label ;
+		 skosxl:literalForm "Geistes- und Kulturwissenschaften"@de ;
+		 tmv:genus "pl,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_humanities rdf:type skosxl:Label ;
+		 skosxl:literalForm "Humanities"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6979f714 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_geistes__und_kulturwissenschaften ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_324e34f3 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_humanities ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6979f714 skos:exactMatch tmv:term_en_324e34f3 .
+
+tmv:term_en_324e34f3 skos:exactMatch tmv:term_de_6979f714 .
+
+tmv:label_de_sozial__und_wirtschaftswissenschaften rdf:type skosxl:Label ;
+		 skosxl:literalForm "Sozial- und Wirtschaftswissenschaften"@de ;
+		 tmv:genus "pl,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_social_sciences_economics_and_business_administration rdf:type skosxl:Label ;
+		 skosxl:literalForm "Social Sciences, Economics, and Business Administration"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_eca6791b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_sozial__und_wirtschaftswissenschaften ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_a1afd5aa rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_social_sciences_economics_and_business_administration ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_eca6791b skos:exactMatch tmv:term_en_a1afd5aa .
+
+tmv:term_en_a1afd5aa skos:exactMatch tmv:term_de_eca6791b .
+
+tmv:label_de_wirtschaftsinformatik_u_angewandte_informatik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Wirtschaftsinformatik u. Angewandte Informatik"@de ;
+		 tmv:genus "f,f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_information_systems_and_applied_computer_sciences rdf:type skosxl:Label ;
+		 skosxl:literalForm "Information Systems and Applied Computer Sciences"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_3dc3bcbc rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_wirtschaftsinformatik_u_angewandte_informatik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_735423d3 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_information_systems_and_applied_computer_sciences ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_3dc3bcbc skos:exactMatch tmv:term_en_735423d3 .
+
+tmv:term_en_735423d3 skos:exactMatch tmv:term_de_3dc3bcbc .
+
+tmv:label_de_angewandte_informatik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Angewandte Informatik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_applied_computer_science rdf:type skosxl:Label ;
+		 skosxl:literalForm "Applied Computer Science"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_8b921926 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_angewandte_informatik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_e8728957 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_applied_computer_science ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_8b921926 skos:exactMatch tmv:term_en_e8728957 .
+
+tmv:term_en_e8728957 skos:exactMatch tmv:term_de_8b921926 .
+
+tmv:label_de_wirtschaftspaedagogik_wi rdf:type skosxl:Label ;
+		 skosxl:literalForm "Wirtschaftspädagogik (WI)"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_education_in_business_and_information_systems rdf:type skosxl:Label ;
+		 skosxl:literalForm "Education in Business and Information Systems"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_445853a0 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_wirtschaftspaedagogik_wi ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_1a0ed33c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_education_in_business_and_information_systems ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_445853a0 skos:exactMatch tmv:term_en_1a0ed33c .
+
+tmv:term_en_1a0ed33c skos:exactMatch tmv:term_de_445853a0 .
+
+tmv:label_de_universitaetsbibliothek rdf:type skosxl:Label ;
+		 skosxl:literalForm "Universitätsbibliothek"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_university_library rdf:type skosxl:Label ;
+		 skosxl:literalForm "University Library"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_4db2d952 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_universitaetsbibliothek ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_574922ed rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_university_library ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_4db2d952 skos:exactMatch tmv:term_en_574922ed .
+
+tmv:term_en_574922ed skos:exactMatch tmv:term_de_4db2d952 .
+
+tmv:label_de_archaeologische_wiss_denkmalwiss_und_kunstgeschichte rdf:type skosxl:Label ;
+		 skosxl:literalForm "Archäologische Wiss., Denkmalwiss. und Kunstgeschichte"@de ;
+		 tmv:genus "f,f,f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_archaeology_heritage_sciences_and_art_history_iadk rdf:type skosxl:Label ;
+		 skosxl:literalForm "Archaeology, Heritage Sciences and Art History (IADK)"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_74a751c3 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_archaeologische_wiss_denkmalwiss_und_kunstgeschichte ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_d7314cac rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_archaeology_heritage_sciences_and_art_history_iadk ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_74a751c3 skos:exactMatch tmv:term_en_d7314cac .
+
+tmv:term_en_d7314cac skos:exactMatch tmv:term_de_74a751c3 .
+
+tmv:label_de_kommunikationswissenschaft rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kommunikationswissenschaft"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_communication_studies rdf:type skosxl:Label ;
+		 skosxl:literalForm "Communication Studies"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_307a420f rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kommunikationswissenschaft ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_cfa930ff rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_communication_studies ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_307a420f skos:exactMatch tmv:term_en_cfa930ff .
+
+tmv:term_en_cfa930ff skos:exactMatch tmv:term_de_307a420f .
+
+tmv:label_de_orientalistik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Orientalistik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_oriental_studies rdf:type skosxl:Label ;
+		 skosxl:literalForm "Oriental Studies"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_29c2060b rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_orientalistik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_882cba5a rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_oriental_studies ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_29c2060b skos:exactMatch tmv:term_en_882cba5a .
+
+tmv:term_en_882cba5a skos:exactMatch tmv:term_de_29c2060b .
+
+tmv:label_de_dekanat rdf:type skosxl:Label ;
+		 skosxl:literalForm "Dekanat"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_office_of_the_dean rdf:type skosxl:Label ;
+		 skosxl:literalForm "Office of the Dean"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_576ae168 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_dekanat ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_45497467 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_office_of_the_dean ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_576ae168 skos:exactMatch tmv:term_en_45497467 .
+
+tmv:term_en_45497467 skos:exactMatch tmv:term_de_576ae168 .
+
+tmv:label_de_personenuebersicht rdf:type skosxl:Label ;
+		 skosxl:literalForm "Personenübersicht"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_staff_overview rdf:type skosxl:Label ;
+		 skosxl:literalForm "Staff Overview"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_a3ae1c8e rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_personenuebersicht ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_9466edeb rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_staff_overview ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_a3ae1c8e skos:exactMatch tmv:term_en_9466edeb .
+
+tmv:term_en_9466edeb skos:exactMatch tmv:term_de_a3ae1c8e .
+
+tmv:label_de_kognitive_systeme rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kognitive Systeme"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_cognitive_systems rdf:type skosxl:Label ;
+		 skosxl:literalForm "Cognitive Systems"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e5311152 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kognitive_systeme ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_e4f484a3 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_cognitive_systems ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e5311152 skos:exactMatch tmv:term_en_e4f484a3 .
+
+tmv:term_en_e4f484a3 skos:exactMatch tmv:term_de_e5311152 .
+
+tmv:label_de_kulturinformatik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kulturinformatik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_cultural_computing rdf:type skosxl:Label ;
+		 skosxl:literalForm "Cultural Computing"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_b1692f80 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kulturinformatik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_abda89e3 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_cultural_computing ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_b1692f80 skos:exactMatch tmv:term_en_abda89e3 .
+
+tmv:term_en_abda89e3 skos:exactMatch tmv:term_de_b1692f80 .
+
+tmv:label_de_medieninformatik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Medieninformatik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_media_informatics rdf:type skosxl:Label ;
+		 skosxl:literalForm "Media Informatics"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_3ebc287c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_medieninformatik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_9972642c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_media_informatics ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_3ebc287c skos:exactMatch tmv:term_en_9972642c .
+
+tmv:term_en_9972642c skos:exactMatch tmv:term_de_3ebc287c .
+
+tmv:label_de_mensch_computer_interaktion rdf:type skosxl:Label ;
+		 skosxl:literalForm "Mensch-Computer-Interaktion"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_human_computer_interaction rdf:type skosxl:Label ;
+		 skosxl:literalForm "Human-Computer Interaction"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_8a9ba213 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_mensch_computer_interaktion ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_b4d51fa0 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_human_computer_interaction ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_8a9ba213 skos:exactMatch tmv:term_en_b4d51fa0 .
+
+tmv:term_en_b4d51fa0 skos:exactMatch tmv:term_de_8a9ba213 .
+
+tmv:label_de_informatik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Informatik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_computer_science rdf:type skosxl:Label ;
+		 skosxl:literalForm "Computer Science"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_897ccf4f rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_informatik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_0520e68f rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_computer_science ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_897ccf4f skos:exactMatch tmv:term_en_0520e68f .
+
+tmv:term_en_0520e68f skos:exactMatch tmv:term_de_897ccf4f .
+
+tmv:label_de_grundlagen_der_informatik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Grundlagen der Informatik"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_informatics_theory_group rdf:type skosxl:Label ;
+		 skosxl:literalForm "Informatics Theory Group"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_d9bbfd11 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_grundlagen_der_informatik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_ed8e6f30 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_informatics_theory_group ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_d9bbfd11 skos:exactMatch tmv:term_en_ed8e6f30 .
+
+tmv:term_en_ed8e6f30 skos:exactMatch tmv:term_de_d9bbfd11 .
+
+tmv:label_de_kommunikationsdienste_telekommunikationssys_und_rechnernetze rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kommunikationsdienste, Telekommunikationssys. und Rechnernetze"@de ;
+		 tmv:genus "pl,pl,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_communication_services_telecomm_systems_und_computer_networks rdf:type skosxl:Label ;
+		 skosxl:literalForm "Communication Services, Telecomm. Systems und Computer Networks"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_3e0cd81f rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kommunikationsdienste_telekommunikationssys_und_rechnernetze ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_adf1c402 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_communication_services_telecomm_systems_und_computer_networks ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_3e0cd81f skos:exactMatch tmv:term_en_adf1c402 .
+
+tmv:term_en_adf1c402 skos:exactMatch tmv:term_de_3e0cd81f .
+
+tmv:label_de_mobile_software_systeme_mobilitaet rdf:type skosxl:Label ;
+		 skosxl:literalForm "Mobile Software Systeme (Mobilität)"@de ;
+		 tmv:genus "pl,f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_mobile_devices_mobility rdf:type skosxl:Label ;
+		 skosxl:literalForm "Mobile devices (mobility)"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_56477df5 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_mobile_software_systeme_mobilitaet ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_2951f6a5 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_mobile_devices_mobility ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_56477df5 skos:exactMatch tmv:term_en_2951f6a5 .
+
+tmv:term_en_2951f6a5 skos:exactMatch tmv:term_de_56477df5 .
+
+tmv:label_de_softwaretechnik_und_programmiersprachen rdf:type skosxl:Label ;
+		 skosxl:literalForm "Softwaretechnik und Programmiersprachen"@de ;
+		 tmv:genus "f,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_software_technologies_research_group rdf:type skosxl:Label ;
+		 skosxl:literalForm "Software Technologies Research Group"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_2aa8246d rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_softwaretechnik_und_programmiersprachen ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_7686c411 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_software_technologies_research_group ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_2aa8246d skos:exactMatch tmv:term_en_7686c411 .
+
+tmv:term_en_7686c411 skos:exactMatch tmv:term_de_2aa8246d .
+
+tmv:label_de_privatsphaere_und_sicherheit_in_informationssystemen rdf:type skosxl:Label ;
+		 skosxl:literalForm "Privatsphäre und Sicherheit in Informationssystemen"@de ;
+		 tmv:genus "f,f,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_privacy_and_security_in_information_systems_group rdf:type skosxl:Label ;
+		 skosxl:literalForm "Privacy and Security in Information Systems Group"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_fc50ddbb rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_privatsphaere_und_sicherheit_in_informationssystemen ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_11622462 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_privacy_and_security_in_information_systems_group ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_fc50ddbb skos:exactMatch tmv:term_en_11622462 .
+
+tmv:term_en_11622462 skos:exactMatch tmv:term_de_fc50ddbb .
+
+tmv:label_de_energieeffiziente_systeme rdf:type skosxl:Label ;
+		 skosxl:literalForm "Energieeffiziente Systeme"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_energy_efficient_systems rdf:type skosxl:Label ;
+		 skosxl:literalForm "Energy Efficient Systems"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_ca52d3e5 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_energieeffiziente_systeme ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_643c7b77 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_energy_efficient_systems ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_ca52d3e5 skos:exactMatch tmv:term_en_643c7b77 .
+
+tmv:term_en_643c7b77 skos:exactMatch tmv:term_de_ca52d3e5 .
+
+tmv:label_de_industrielle_informationssysteme rdf:type skosxl:Label ;
+		 skosxl:literalForm "Industrielle Informationssysteme"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_industrial_information_systems rdf:type skosxl:Label ;
+		 skosxl:literalForm "Industrial Information Systems"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_aff29860 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_industrielle_informationssysteme ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_752c9033 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_industrial_information_systems ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_aff29860 skos:exactMatch tmv:term_en_752c9033 .
+
+tmv:term_en_752c9033 skos:exactMatch tmv:term_de_aff29860 .
+
+tmv:label_de_informationssysteme_in_dienstleistungsbereichen rdf:type skosxl:Label ;
+		 skosxl:literalForm "Informationssysteme in Dienstleistungsbereichen"@de ;
+		 tmv:genus "pl,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_information_systems_and_services rdf:type skosxl:Label ;
+		 skosxl:literalForm "Information Systems and Services"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_988c27ce rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_informationssysteme_in_dienstleistungsbereichen ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_bf4dc026 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_information_systems_and_services ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_988c27ce skos:exactMatch tmv:term_en_bf4dc026 .
+
+tmv:term_en_bf4dc026 skos:exactMatch tmv:term_de_988c27ce .
+
+tmv:label_de_soziale_netzwerke rdf:type skosxl:Label ;
+		 skosxl:literalForm "Soziale Netzwerke"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_social_networks rdf:type skosxl:Label ;
+		 skosxl:literalForm "Social Networks"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_778752dd rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_soziale_netzwerke ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_65b987bd rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_social_networks ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_778752dd skos:exactMatch tmv:term_en_65b987bd .
+
+tmv:term_en_65b987bd skos:exactMatch tmv:term_de_778752dd .
+
+tmv:label_de_volkswirtschaftslehre rdf:type skosxl:Label ;
+		 skosxl:literalForm "Volkswirtschaftslehre"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_economics_department rdf:type skosxl:Label ;
+		 skosxl:literalForm "Economics Department"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_45bc78ca rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_volkswirtschaftslehre ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_6a252e9d rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_economics_department ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_45bc78ca skos:exactMatch tmv:term_en_6a252e9d .
+
+tmv:term_en_6a252e9d skos:exactMatch tmv:term_de_45bc78ca .
+
+tmv:label_de_politikwissenschaft rdf:type skosxl:Label ;
+		 skosxl:literalForm "Politikwissenschaft"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_political_science rdf:type skosxl:Label ;
+		 skosxl:literalForm "Political Science"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_49d52174 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_politikwissenschaft ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_d9b77ebe rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_political_science ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_49d52174 skos:exactMatch tmv:term_en_d9b77ebe .
+
+tmv:term_en_d9b77ebe skos:exactMatch tmv:term_de_49d52174 .
+
+tmv:label_de_soziologie rdf:type skosxl:Label ;
+		 skosxl:literalForm "Soziologie"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_sociology rdf:type skosxl:Label ;
+		 skosxl:literalForm "Sociology"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_51f65a7d rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_soziologie ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_7a8329fe rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_sociology ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_51f65a7d skos:exactMatch tmv:term_en_7a8329fe .
+
+tmv:term_en_7a8329fe skos:exactMatch tmv:term_de_51f65a7d .
+
+tmv:label_de_betriebswirtschaftslehre rdf:type skosxl:Label ;
+		 skosxl:literalForm "Betriebswirtschaftslehre"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_business_administration rdf:type skosxl:Label ;
+		 skosxl:literalForm "Business Administration"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_0fe4aad7 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_betriebswirtschaftslehre ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_e6ec14f5 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_business_administration ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_0fe4aad7 skos:exactMatch tmv:term_en_e6ec14f5 .
+
+tmv:term_en_e6ec14f5 skos:exactMatch tmv:term_de_0fe4aad7 .
+
+tmv:label_de_internationale_betriebswirtschaftslehre rdf:type skosxl:Label ;
+		 skosxl:literalForm "Internationale Betriebswirtschaftslehre"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_international_business_administration rdf:type skosxl:Label ;
+		 skosxl:literalForm "International Business Administration"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_ea3537b3 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_internationale_betriebswirtschaftslehre ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_fa3b135a rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_international_business_administration ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_ea3537b3 skos:exactMatch tmv:term_en_fa3b135a .
+
+tmv:term_en_fa3b135a skos:exactMatch tmv:term_de_ea3537b3 .
+
+tmv:label_de_survey_statistik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Survey-Statistik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_survey_statistics rdf:type skosxl:Label ;
+		 skosxl:literalForm "Survey Statistics"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_9bc4fd17 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_survey_statistik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_2829f000 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_survey_statistics ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_9bc4fd17 skos:exactMatch tmv:term_en_2829f000 .
+
+tmv:term_en_2829f000 skos:exactMatch tmv:term_de_9bc4fd17 .
+
+tmv:label_de_empirische_bildungsforschung rdf:type skosxl:Label ;
+		 skosxl:literalForm "Empirische Bildungsforschung"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_educational_research rdf:type skosxl:Label ;
+		 skosxl:literalForm "Educational Research"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6c256401 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_empirische_bildungsforschung ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_cef61793 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_educational_research ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6c256401 skos:exactMatch tmv:term_en_cef61793 .
+
+tmv:term_en_cef61793 skos:exactMatch tmv:term_de_6c256401 .
+
+tmv:label_de_paedagogik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Pädagogik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_education rdf:type skosxl:Label ;
+		 skosxl:literalForm "Education"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_4cd4f697 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_paedagogik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_c6619e2c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_education ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_4cd4f697 skos:exactMatch tmv:term_en_c6619e2c .
+
+tmv:term_en_c6619e2c skos:exactMatch tmv:term_de_4cd4f697 .
+
+tmv:label_de_psychologie rdf:type skosxl:Label ;
+		 skosxl:literalForm "Psychologie"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_psychology rdf:type skosxl:Label ;
+		 skosxl:literalForm "Psychology"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_1e6c65de rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_psychologie ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_44e33dbb rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_psychology ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_1e6c65de skos:exactMatch tmv:term_en_44e33dbb .
+
+tmv:term_en_44e33dbb skos:exactMatch tmv:term_de_1e6c65de .
+
+tmv:label_de_didaktik_der_mathematik_und_informatik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Didaktik der Mathematik und Informatik"@de ;
+		 tmv:genus "f,f,f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_teaching_mathematics_computer_science rdf:type skosxl:Label ;
+		 skosxl:literalForm "Teaching Mathematics, Computer Science"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e869e446 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_didaktik_der_mathematik_und_informatik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_a61503e3 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_teaching_mathematics_computer_science ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e869e446 skos:exactMatch tmv:term_en_a61503e3 .
+
+tmv:term_en_a61503e3 skos:exactMatch tmv:term_de_e869e446 .
+
+tmv:label_de_didaktik_der_naturwissenschaften rdf:type skosxl:Label ;
+		 skosxl:literalForm "Didaktik der Naturwissenschaften"@de ;
+		 tmv:genus "f,pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_teaching_natural_sciences rdf:type skosxl:Label ;
+		 skosxl:literalForm "Teaching Natural Sciences"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_7c05681c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_didaktik_der_naturwissenschaften ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_0b1074ef rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_teaching_natural_sciences ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_7c05681c skos:exactMatch tmv:term_en_0b1074ef .
+
+tmv:term_en_0b1074ef skos:exactMatch tmv:term_de_7c05681c .
+
+tmv:label_de_musikpaedagogik_und_musikdidaktik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Musikpädagogik und Musikdidaktik"@de ;
+		 tmv:genus "f,f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_music_education_and_teaching rdf:type skosxl:Label ;
+		 skosxl:literalForm "Music Education and Teaching"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6d67ec5c rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_musikpaedagogik_und_musikdidaktik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_6ef42d54 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_music_education_and_teaching ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6d67ec5c skos:exactMatch tmv:term_en_6ef42d54 .
+
+tmv:term_en_6ef42d54 skos:exactMatch tmv:term_de_6d67ec5c .
+
+tmv:label_de_didaktik_der_kunst rdf:type skosxl:Label ;
+		 skosxl:literalForm "Didaktik der Kunst"@de ;
+		 tmv:genus "f,f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_art_education rdf:type skosxl:Label ;
+		 skosxl:literalForm "Art Education"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_b9b792c8 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_didaktik_der_kunst ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_150741ac rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_art_education ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_b9b792c8 skos:exactMatch tmv:term_en_150741ac .
+
+tmv:term_en_150741ac skos:exactMatch tmv:term_de_b9b792c8 .
+
+tmv:label_de_sportdidaktik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Sportdidaktik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_sport_didactics rdf:type skosxl:Label ;
+		 skosxl:literalForm "Sport Didactics"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e7481ea9 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_sportdidaktik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_9df294e2 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_sport_didactics ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_e7481ea9 skos:exactMatch tmv:term_en_9df294e2 .
+
+tmv:term_en_9df294e2 skos:exactMatch tmv:term_de_e7481ea9 .
+
+tmv:label_de_masterstudiengang rdf:type skosxl:Label ;
+		 skosxl:literalForm "Masterstudiengang"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_master_programme rdf:type skosxl:Label ;
+		 skosxl:literalForm "Master Programme"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_d0d022b9 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_masterstudiengang ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_a7b28939 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_master_programme ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_d0d022b9 skos:exactMatch tmv:term_en_a7b28939 .
+
+tmv:term_en_a7b28939 skos:exactMatch tmv:term_de_d0d022b9 .
+
+tmv:label_de_bildungsmanagement_und_schul_fuehrung rdf:type skosxl:Label ;
+		 skosxl:literalForm "Bildungsmanagement und Schul-Führung"@de ;
+		 tmv:genus "n,f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_educational_management_and_school_leadership rdf:type skosxl:Label ;
+		 skosxl:literalForm "Educational Management and School Leadership"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_6ce886d6 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_bildungsmanagement_und_schul_fuehrung ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:term_en_3a2136ef rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_educational_management_and_school_leadership ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_6ce886d6 skos:exactMatch tmv:term_en_3a2136ef .
+
+tmv:term_en_3a2136ef skos:exactMatch tmv:term_de_6ce886d6 .
+
+tmv:label_de_berufliche_bildung rdf:type skosxl:Label ;
+		 skosxl:literalForm "Berufliche Bildung"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:label_en_vocational_education rdf:type skosxl:Label ;
+		 skosxl:literalForm "Vocational Education"@en ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_c430af70 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_berufliche_bildung ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_en_f1b76322 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_vocational_education ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_c430af70 skos:exactMatch tmv:term_en_f1b76322 .
+
+tmv:term_en_f1b76322 skos:exactMatch tmv:term_de_c430af70 .
+
+tmv:label_de_sozialpaedagogik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Sozialpädagogik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:label_en_social_pedagogy rdf:type skosxl:Label ;
+		 skosxl:literalForm "Social Pedagogy"@en ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_21b173ef rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_sozialpaedagogik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_en_e786e56a rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_social_pedagogy ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_21b173ef skos:exactMatch tmv:term_en_e786e56a .
+
+tmv:term_en_e786e56a skos:exactMatch tmv:term_de_21b173ef .
+
+tmv:label_de_kanzler_in rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kanzler(in)"@de ;
+		 tmv:genus "m,f"@de ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:label_en_registrar rdf:type skosxl:Label ;
+		 skosxl:literalForm "registrar"@en ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_a99385a2 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kanzler_in ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_en_5bec92ad rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_registrar ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_a99385a2 skos:exactMatch tmv:term_en_5bec92ad .
+
+tmv:term_en_5bec92ad skos:exactMatch tmv:term_de_a99385a2 .
+
+tmv:label_de_elektronik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Elektronik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-10T22:40:35+02:00"^^xsd:dateTime .
+
+tmv:label_en_electronics rdf:type skosxl:Label ;
+		 skosxl:literalForm "electronics"@en ;
+		 dct:created "2019-10-10T22:40:35+02:00"^^xsd:dateTime .
+
+tmv:term_de_dfe626e6 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_elektronik ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-10T22:40:36+02:00"^^xsd:dateTime .
+
+tmv:term_en_3d545d90 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_electronics ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-10T22:40:36+02:00"^^xsd:dateTime .
+
+tmv:term_de_dfe626e6 skos:exactMatch tmv:term_en_3d545d90 .
+
+tmv:term_en_3d545d90 skos:exactMatch tmv:term_de_dfe626e6 .
+
+tmv:label_de_wissenschaftliche_einrichtungen rdf:type skosxl:Label ;
+		 skosxl:literalForm "Wissenschaftliche Einrichtungen"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-10T22:40:36+02:00"^^xsd:dateTime .
+
+tmv:label_en_academic_institutions rdf:type skosxl:Label ;
+		 skosxl:literalForm "Academic Institutions"@en ;
+		 dct:created "2019-10-10T22:40:36+02:00"^^xsd:dateTime .
+
+tmv:term_de_571a0d36 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_wissenschaftliche_einrichtungen ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-10T22:40:36+02:00"^^xsd:dateTime .
+
+tmv:term_en_33ec150e rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_academic_institutions ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-10T22:40:36+02:00"^^xsd:dateTime .
+
+tmv:term_de_571a0d36 skos:exactMatch tmv:term_en_33ec150e .
+
+tmv:term_en_33ec150e skos:exactMatch tmv:term_de_571a0d36 .
+
+tmv:label_de_sekretariat rdf:type skosxl:Label ;
+		 skosxl:literalForm "Sekretariat"@de ;
+		 tmv:genus "n"@de ;
+		 dct:created "2019-10-11T12:57:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_secretariat rdf:type skosxl:Label ;
+		 skosxl:literalForm "secretariat"@en ;
+		 dct:created "2019-10-11T12:57:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_secretary_office rdf:type skosxl:Label ;
+		 skosxl:literalForm "secretary's office"@en ;
+		 dct:created "2019-10-11T12:57:20+02:00"^^xsd:dateTime .
+
+tmv:term_de_2eeca25e rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_sekretariat ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-11T12:57:21+02:00"^^xsd:dateTime .
+
+tmv:term_en_a489e2f7 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_secretariat ;
+		 skos:altLabel tmv:label_en_secretary_office ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-11T12:57:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_2eeca25e skos:exactMatch tmv:term_en_a489e2f7 .
+
+tmv:term_en_a489e2f7 skos:exactMatch tmv:term_de_2eeca25e .
+
+tmv:label_de_warteliste rdf:type skosxl:Label ;
+		 skosxl:literalForm "Warteliste"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-11T12:57:21+02:00"^^xsd:dateTime .
+
+tmv:label_en_waiting_list rdf:type skosxl:Label ;
+		 skosxl:literalForm "waiting list"@en ;
+		 dct:created "2019-10-11T12:57:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_8fc70714 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_warteliste ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-11T12:57:21+02:00"^^xsd:dateTime .
+
+tmv:term_en_465e58f1 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_waiting_list ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-11T12:57:21+02:00"^^xsd:dateTime .
+
+tmv:term_de_8fc70714 skos:exactMatch tmv:term_en_465e58f1 .
+
+tmv:term_en_465e58f1 skos:exactMatch tmv:term_de_8fc70714 .
+
+
+### Individuals (1 to more mapping - exact meaning)
+
+tmv:label_de_wirtschaftsinformatik rdf:type skosxl:Label ;
+		 skosxl:literalForm "Wirtschaftsinformatik"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:exp_de_b4e32d3f rdf:type skosxl:Label ;
+		 skosxl:literalForm "Das Fachgebiet Wirtschaftsinformatik besitzt an der Otto-Friedrich-Universität Bamberg eine lange Tradition. Als Spezielle Betriebswirtschaftslehre wird Wirtschaftsinformatik seit den 1980er-Jahren in wirtschaftswissenschaftlichen Studiengängen angeboten. Zum Wintersemester 1987/88 wurde an der Universität Bamberg der erste Diplom-Studiengang Wirtschaftsinformatik an einer bayerischen Universität – der dritte in Deutschland – eingerichtet. Das Fachgebiet Wirtschaftsinformatik wird derzeit durch fünf Lehrstühle vertreten. Vier domänenorientierte Arbeitsschwerpunkte werden durch einen fünften, querschnittlich ausgerichteten Arbeitsschwerpunkt ergänzt."@de ;
+		 dct:source "https://www.uni-bamberg.de/wi/"@de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_de_10648a4e rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_wirtschaftsinformatik ;
+		 skos:editorialNote "0"@de ;
+		 tmv:context "Fächer und Lehrstühle"@de;
+		 skos:definition tmv:exp_de_b4e32d3f ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime ;
+		 dct:modified "2019-10-10T19:14:45+02:00"^^xsd:dateTime .
+
+tmv:label_de_informationssysteme rdf:type skosxl:Label ;
+		 skosxl:literalForm "Informationssysteme"@de ;
+		 tmv:genus "pl"@de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:exp_de_58fe68b3 rdf:type skosxl:Label ;
+		 skosxl:literalForm "Das Dezernat Z/IS stellt eine funktionierende Infrastruktur und den Betrieb der Informationsverarbeitung innerhalb der Verwaltung sicher und bietet durch Ausbau der Selbstbedienungsfunktionen einen möglichst 'barrierefreien' Zugang auf die zu verwendenden Daten für Studierende und Beschäftigte. Für Anwender und Anwenderinnen der Zentralverwaltung und Angehörige der Lehrstühle werden Daten der Mittelbewirtschaftung wie z.B.: Haushaltskonten und Kostenübersichten bereitgestellt. Des weiteren finden sich in diesem Bereich Anwendungen des Gebäudemanagements sowie des Personalwesens. Im Campus-Bereich werden unter anderem die Verfahren  'Flexnow' und das Zulassungsverfahren 'QIS' betreut. Mit dem ZUV-Portal existiert ein einheitlicher WWW–Zugang zu den Dienstleistungen der Verwaltung. Studierenden stehen dabei u.a. folgende Funktionen zur Verfügung: Belegung von Lehrveranstaltungen Prüfungsanmeldung; Noteneinsicht; Bescheinigungsdruck; Druck von Parkerlaubnis/Erfassung Kfz-Kennzeichen."@de ;
+		 dct:source "https://www.uni-bamberg.de/is/"@de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_de_2327e9c6 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_informationssysteme ;
+		 skos:editorialNote "0"@de ;
+		 tmv:context "Dezernat Z/IS"@de ;
+		 skos:definition tmv:exp_de_58fe68b3 ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime ;
+		 dct:modified "2019-10-10T19:14:45+02:00"^^xsd:dateTime .
+
+tmv:label_en_information_systems rdf:type skosxl:Label ;
+		 skosxl:literalForm "Information Systems"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:label_en_infosys_departments rdf:type skosxl:Label ;
+		 skosxl:literalForm "Information Systems Departments"@en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime .
+
+tmv:exp_en_f4981646 rdf:type skosxl:Label ;
+		 skosxl:literalForm "Electronic information systems like FlexNow!, UnivIS and many other internal IT systems are overseen by the Information Systems Division, which is also responsible for all other conceptual matters pertaining to information technology."@en ;
+		 dct:source "https://www.uni-bamberg.de/en/is/"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_en_e59b187f rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_information_systems ;
+		 skos:editorialNote "1"@en ;
+		 tmv:context "Central Division Z/IS"@en ;
+		 skos:definition tmv:exp_en_f4981646 ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime ;
+		 dct:modified "2019-10-10T19:14:45+02:00"^^xsd:dateTime .
+
+tmv:exp_en_075f5a5f rdf:type skosxl:Label ;
+		 skosxl:literalForm "The field of Information Systems at the University of Bamberg can look back on a rich tradition. Originally classified as a specialized discipline of Business Administration and Management, Information Systems has been offered in economics degree programmes since the 1980s. In the winter semester of 1987/88, the University of Bamberg introduced Bavaria’s first – and Germany’s third – degree programme (Diplom) in Information Systems. Information Systems is currently represented by four chaired departments. Three domain-oriented areas of focus are complemented by a fourth, interdisciplinary focus area."@en ;
+		 dct:source "https://www.uni-bamberg.de/en/wi/"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_en_5e0382da rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_information_systems ;
+		 skos:altLabel tmv:label_en_infosys_departments ;
+		 skos:editorialNote "1"@en ;
+		 tmv:context "Subject Groups"@en ;
+		 skos:definition tmv:exp_en_075f5a5f ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-09T15:00:20+02:00"^^xsd:dateTime ;
+		 dct:modified "2019-10-10T19:14:45+02:00"^^xsd:dateTime .
+
+tmv:term_de_2327e9c6 skos:exactMatch tmv:term_en_e59b187f .
+tmv:term_en_e59b187f skos:exactMatch tmv:term_de_2327e9c6 .
+tmv:term_en_5e0382da skos:exactMatch tmv:term_de_10648a4e .
+tmv:term_de_10648a4e skos:exactMatch tmv:term_en_5e0382da .
+
+
+tmv:label_de_auflage rdf:type skosxl:Label ;
+		 skosxl:literalForm "Auflage"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-12T22:48:57+02:00"^^xsd:dateTime .
+
+tmv:label_en_edition rdf:type skosxl:Label ;
+		 skosxl:literalForm "edition"@en ;
+		 dct:created "2019-10-12T22:48:57+02:00"^^xsd:dateTime .
+
+tmv:term_de_0caacdb6 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_auflage ;
+		 skos:editorialNote "1"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-12T22:48:57+02:00"^^xsd:dateTime .
+
+tmv:term_de_0caacdb6 tmv:context "Bücher"@de .
+
+tmv:term_en_380a1f54 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_edition ;
+		 skos:editorialNote "1"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-12T22:48:57+02:00"^^xsd:dateTime .
+
+tmv:label_en_print_run rdf:type skosxl:Label ;
+		 skosxl:literalForm "print run"@en ;
+		 dct:created "2019-10-12T22:48:57+02:00"^^xsd:dateTime .
+
+tmv:exp_en_bd2bab8b rdf:type skosxl:Label ;
+		 skosxl:literalForm "the number of copies of a book, magazine, etc. printed at one time"@en ;
+		 dct:source "Oxford advanced learner's dictionary of current English"@en ;
+		 dct:created "2019-10-10T23:03:50+02:00"^^xsd:dateTime .
+
+tmv:term_en_37bb4000 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_print_run ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-12T22:48:57+02:00"^^xsd:dateTime .
+
+tmv:term_en_37bb4000 tmv:shortDefinition tmv:exp_en_bd2bab8b .
+
+tmv:label_de_ausgabe rdf:type skosxl:Label ;
+		 skosxl:literalForm "Ausgabe"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-12T22:48:57+02:00"^^xsd:dateTime .
+
+tmv:term_de_ad9f28f7 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_ausgabe ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-12T22:48:57+02:00"^^xsd:dateTime .
+
+tmv:term_de_ad9f28f7 tmv:context "Zeitschriften"@de .
+
+tmv:term_de_0caacdb6 skos:closeMatch tmv:term_en_380a1f54 .
+
+tmv:term_de_0caacdb6 skos:closeMatch tmv:term_en_37bb4000 .
+
+tmv:term_en_380a1f54 skos:closeMatch tmv:term_de_0caacdb6 .
+
+tmv:term_en_380a1f54 skos:closeMatch tmv:term_de_ad9f28f7 .
+
+tmv:term_en_37bb4000 skos:closeMatch tmv:term_de_0caacdb6 .
+
+tmv:term_de_ad9f28f7 skos:closeMatch tmv:term_en_380a1f54 .
+
+
+### Individuals (1 to more mapping - closely meaning)
+
+tmv:label_en_ects rdf:type skosxl:Label ;
+		 skosxl:literalForm "ECTS"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:label_en_credit_points rdf:type skosxl:Label ;
+		 skosxl:literalForm "Credit Points"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:label_en_credits rdf:type skosxl:Label ;
+		 skosxl:literalForm "Credits"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:label_en_proof_of_academic_achievement rdf:type skosxl:Label ;
+		 skosxl:literalForm "Proof of academic achievement"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:exp_en_7706d58c rdf:type skosxl:Label ;
+		 skosxl:literalForm "European Credit Transfer and Accumulation System"@en ;
+		 dct:source "https://en.wikipedia.org/wiki/European_Credit_Transfer_and_Accumulation_System"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:exp_en_1ebe7ccc rdf:type skosxl:Label ;
+		 skosxl:literalForm "ECTS is designed to make it easier for students to move between countries and to have their academic qualifications and study periods abroad recognised."@en ;
+		 dct:source "https://en.wikipedia.org/wiki/European_Credit_Transfer_and_Accumulation_System"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:exp_en_993884c6 rdf:type skosxl:Label ;
+		 skosxl:literalForm "European Credit Transfer and Accumulation System (ECTS) credits are a standard means for comparing 'the volume of learning based on the defined learning outcomes and their associated workload' for higher education across the European Union and other collaborating European countries[1]. For successfully completed studies, ECTS credits are awarded. One academic year corresponds to 60 ECTS credits that are normally equivalent to 1500–1800 hours of total workload, irrespective of standard or qualification type. ECTS credits are used to facilitate transfer and progression throughout the Union."@en ;
+		 dct:source "https://en.wikipedia.org/wiki/European_Credit_Transfer_and_Accumulation_System"@en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_en_879c8b42 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_ects ;
+		 skos:editorialNote "2"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_en_879c8b42 skos:altLabel tmv:label_en_credit_points .
+
+tmv:term_en_879c8b42 skos:altLabel tmv:label_en_credits .
+
+tmv:term_en_879c8b42 skos:altLabel tmv:label_en_proof_of_academic_achievement .
+
+tmv:term_en_879c8b42 tmv:shortDefinition tmv:exp_en_7706d58c .
+
+tmv:term_en_879c8b42 tmv:mediumDefinition tmv:exp_en_1ebe7ccc .
+
+tmv:term_en_879c8b42 tmv:longDefinition tmv:exp_en_993884c6 .
+
+tmv:term_en_879c8b42 foaf:depiction &lt;https://upload.wikimedia.org/wikipedia/de/6/63/ECTS.jpg&gt; .
+
+tmv:label_de_leistungsnachweis rdf:type skosxl:Label ;
+		 skosxl:literalForm "Leistungsnachweis"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_de_f2e1aa3d rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_leistungsnachweis ;
+		 skos:editorialNote "2"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:label_de_schein rdf:type skosxl:Label ;
+		 skosxl:literalForm "Schein"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_de_ee034726 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_schein ;
+		 skos:editorialNote "2"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:label_de_leistungspunkt rdf:type skosxl:Label ;
+		 skosxl:literalForm "Leistungspunkt"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_de_fe85e614 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_leistungspunkt ;
+		 skos:editorialNote "2"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_de_fe85e614 skos:altLabel "LP"@de .
+
+tmv:label_de_kreditpunkt rdf:type skosxl:Label ;
+		 skosxl:literalForm "Kreditpunkt"@de ;
+		 tmv:genus "m"@de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_de_4672e3d2 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_kreditpunkt ;
+		 skos:editorialNote "2"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-12T22:50:54+02:00"^^xsd:dateTime .
+
+tmv:term_de_4672e3d2 skos:altLabel "KP"@de .
+
+tmv:term_en_879c8b42 skos:relatedMatch tmv:term_de_f2e1aa3d .
+
+tmv:term_en_879c8b42 skos:relatedMatch tmv:term_de_ee034726 .
+
+tmv:term_en_879c8b42 skos:relatedMatch tmv:term_de_fe85e614 .
+
+tmv:term_en_879c8b42 skos:relatedMatch tmv:term_de_4672e3d2 .
+
+tmv:term_de_f2e1aa3d skos:related tmv:term_de_ee034726 .
+
+tmv:term_de_f2e1aa3d skos:related tmv:term_de_fe85e614 .
+
+tmv:term_de_f2e1aa3d skos:related tmv:term_de_4672e3d2 .
+
+tmv:term_de_f2e1aa3d skos:relatedMatch tmv:term_en_879c8b42 .
+
+tmv:term_de_f2e1aa3d skos:related tmv:term_de_ee034726 .
+
+tmv:term_de_f2e1aa3d skos:related tmv:term_de_fe85e614 .
+
+tmv:term_de_f2e1aa3d skos:related tmv:term_de_4672e3d2 .
+
+tmv:term_de_ee034726 skos:relatedMatch tmv:term_en_879c8b42 .
+
+tmv:term_de_ee034726 skos:related tmv:term_de_f2e1aa3d .
+
+tmv:term_de_ee034726 skos:related tmv:term_de_fe85e614 .
+
+tmv:term_de_ee034726 skos:related tmv:term_de_4672e3d2 .
+
+tmv:term_de_ee034726 skos:relatedMatch tmv:term_en_879c8b42 .
+
+tmv:term_de_fe85e614 skos:related tmv:term_de_ee034726 .
+
+tmv:term_de_fe85e614 skos:related tmv:term_de_f2e1aa3d .
+
+tmv:term_de_fe85e614 skos:related tmv:term_de_4672e3d2 .
+
+tmv:term_de_fe85e614 skos:relatedMatch tmv:term_en_879c8b42 .
+
+tmv:term_de_4672e3d2 skos:related tmv:term_de_ee034726 .
+
+tmv:term_de_4672e3d2 skos:related tmv:term_de_fe85e614 .
+
+tmv:term_de_4672e3d2 skos:related tmv:term_de_f2e1aa3d .
+
+tmv:term_de_4672e3d2 skos:relatedMatch tmv:term_en_879c8b42 .
+        
+    </pre>
+</body>
+
+</html>
