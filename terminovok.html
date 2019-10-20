@@ -27,8 +27,8 @@
     dct:title       "Terminology Management Vocabulary"@en ;
     dct:description "The Terminology Management Vocabulary (tmv) is designed as the database of the Terminology Management Project in the Master-Thesis of Weilong ZHANG, the contents of this Vacabulary are the Terminologies within the field of higher education."@en ,
                     "An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities."@en ;
-    dct:created     "2019-08-29"^^xsd:date ;
-    dct:modified    "2019-09-01"^^xsd:date ;
+    dct:created     "2019-08-29T00:00:00+02:00"^^xsd:dateTime ;
+    dct:modified    "2019-09-01T00:00:00+02:00"^^xsd:dateTime ;
 	dct:modified    "2019-10-09T15:00:20+02:00"^^xsd:dateTime ;
 	dct:modified    "2019-10-10T22:40:36+02:00"^^xsd:dateTime ;
 	dct:modified    "2019-10-12T22:50:54+02:00"^^xsd:dateTime ;
@@ -41,12 +41,12 @@
 # Scheme of English-Concepts
 tmv:termino_en  rdf:type    skos:ConceptScheme;
                 dct:title    "Terms in English"@en;
-                dct:created  "2019-08-29"^^xsd:date.
+                dct:created  "2019-08-29T00:00:00+02:00"^^xsd:dateTime.
 
 # Schema der deutschen Konzepte
 tmv:termino_de  rdf:type    skos:ConceptScheme;
                 dct:title    "Termini auf Deutsch"@de;
-                dct:created  "2019-08-29"^^xsd:date.
+                dct:created  "2019-08-29T00:00:00+02:00"^^xsd:dateTime.
 
 # Created sub-property of skos:notation i.e. "Genus"
 tmv:genus  rdf:type            owl:DatatypeProperty, rdf:Property;
@@ -54,8 +54,8 @@ tmv:genus  rdf:type            owl:DatatypeProperty, rdf:Property;
            skos:definition     "das grammatische geschlecht"@de;
            rdfs:domain         skosxl:Label;
            rdfs:subPropertyOf  skos:notation;
-           dct:created         "2019-09-23"^^xsd:date;
-           dct:modified        "2019-10-08"^^xsd:date.
+           dct:created         "2019-09-23T00:00:00+02:00"^^xsd:dateTime;
+           dct:modified        "2019-10-08T00:00:00+02:00"^^xsd:dateTime.
 
 # Created sub-property of skos:scopeNote i.e "context of usage"
 tmv:context  rdf:type            owl:AnnotationProperty, rdf:Property;
@@ -63,7 +63,7 @@ tmv:context  rdf:type            owl:AnnotationProperty, rdf:Property;
              skos:definition     "Label the contexts under which the given Term corresponds to the definition."@en;
              rdfs:domain         skos:Concept;
              rdfs:subPropertyOf  skos:scopeNote;
-             dct:created         "2019-09-23"^^xsd:date.
+             dct:created         "2019-09-23T00:00:00+02:00"^^xsd:dateTime.
 
 # Created sub-property of skos:definition, i.e. short definition
 tmv:shortDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
@@ -71,8 +71,8 @@ tmv:shortDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
                      rdfs:label "short definition"@en ;
                      rdfs:subPropertyOf skos:definition ;
                      rdfs:domain skos:Concept ;
-                     dct:created  "2019-08-29"^^xsd:date;
-                     dct:modified "2019-10-08"^^xsd:date.             
+                     dct:created  "2019-08-29T00:00:00+02:00"^^xsd:dateTime;
+                     dct:modified "2019-10-08T00:00:00+02:00"^^xsd:dateTime.             
 
 # Created sub-property of skos:definition, i.e. medium definition
 tmv:mediumDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
@@ -80,8 +80,8 @@ tmv:mediumDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
                      rdfs:label "medium definition"@en ;
                      rdfs:subPropertyOf skos:definition ;
                      rdfs:domain skos:Concept ;
-                     dct:created  "2019-08-29"^^xsd:date;
-                     dct:modified "2019-10-08"^^xsd:date.
+                     dct:created  "2019-08-29T00:00:00+02:00"^^xsd:dateTime;
+                     dct:modified "2019-10-08T00:00:00+02:00"^^xsd:dateTime.
 
 # Created sub-property of skos:definition, i.e. long definition
 tmv:longDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
@@ -89,8 +89,8 @@ tmv:longDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
                    rdfs:label "long definition"@en ;
                    rdfs:subPropertyOf skos:definition ;
                    rdfs:domain skos:Concept ;
-                   dct:created  "2019-08-29"^^xsd:date;
-                   dct:modified "2019-10-08"^^xsd:date.
+                   dct:created  "2019-08-29T00:00:00+02:00"^^xsd:dateTime;
+                   dct:modified "2019-10-08T00:00:00+02:00"^^xsd:dateTime.
 
 ####### Individuals (1 to 1 mapping)
 
@@ -2447,6 +2447,45 @@ tmv:term_de_4672e3d2 skos:related tmv:term_de_fe85e614 .
 tmv:term_de_4672e3d2 skos:related tmv:term_de_f2e1aa3d .
 
 tmv:term_de_4672e3d2 skos:relatedMatch tmv:term_en_879c8b42 .
+
+tmv:exp_de_290bb5d0 rdf:type tmv:Explanation ;
+		 skosxl:literalForm "Verwaltungschef(in) einer Universität"@de ;
+		 dct:source "Deutscher Akademischer Austausch Dienst (DAAD) (2013): Wörterbuch: Begriffe aus Wissenschaft und Hochschule. S.70"@de ;
+		 dct:created "2019-10-15T14:25:12+02:00"^^xsd:dateTime .
+
+tmv:exp_en_a7a19de6 rdf:type tmv:Explanation ;
+		 skosxl:literalForm "administrative head of a university"@en ;
+		 dct:source "German Academic Exchange Service (DAAD) (2013): Dictionary: Higher Education Terminology. P.101"@en ;
+		 dct:created "2019-10-15T14:25:12+02:00"^^xsd:dateTime .
+
+tmv:term_en_5bec92ad tmv:shortDefinition tmv:exp_en_a7a19de6 .
+
+tmv:term_de_a99385a2 tmv:shortDefinition tmv:exp_de_290bb5d0 .
+
+tmv:label_de_professur rdf:type skosxl:Label ;
+		 skosxl:literalForm "Professur"@de ;
+		 tmv:genus "f"@de ;
+		 dct:created "2019-10-15T14:25:13+02:00"^^xsd:dateTime .
+
+tmv:label_en_professorship rdf:type skosxl:Label ;
+		 skosxl:literalForm "professorship"@en ;
+		 dct:created "2019-10-15T14:25:13+02:00"^^xsd:dateTime .
+
+tmv:term_de_e2344348 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_de_professur ;
+		 skos:editorialNote "0"@de ;
+		 skos:inScheme tmv:termino_de ;
+		 dct:created "2019-10-15T14:25:13+02:00"^^xsd:dateTime .
+
+tmv:term_en_c6eb5db9 rdf:type skos:Concept ;
+		 skos:prefLabel tmv:label_en_professorship ;
+		 skos:editorialNote "0"@en ;
+		 skos:inScheme tmv:termino_en ;
+		 dct:created "2019-10-15T14:25:13+02:00"^^xsd:dateTime .
+
+tmv:term_de_e2344348 skos:exactMatch tmv:term_en_c6eb5db9 .
+
+tmv:term_en_c6eb5db9 skos:exactMatch tmv:term_de_e2344348 .
         
     </pre>
 </body>
