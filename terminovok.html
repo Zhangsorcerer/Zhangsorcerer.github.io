@@ -94,7 +94,7 @@ tmv:context  rdf:type            owl:AnnotationProperty, rdf:Property;
 
 # Define sub-property of skos:definition, i.e. short definition
 tmv:shortDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
-						skos:definition "Provide a definition of a concept within 10 words."@en ;
+						skos:definition "Provide a definition of a concept within several words."@en ;
 						rdfs:label "short definition"@en ;
 						rdfs:subPropertyOf skos:definition ;
 						rdfs:domain skos:Concept ;
@@ -103,7 +103,7 @@ tmv:shortDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
 
 # Define sub-property of skos:definition, i.e. medium definition
 tmv:mediumDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
-						skos:definition "Provide a definition of a concept within 5 Sentence(s)."@en ;
+						skos:definition "Provide a definition of a concept within several sentences."@en ;
 						rdfs:label "medium definition"@en ;
 						rdfs:subPropertyOf skos:definition ;
 						rdfs:domain skos:Concept ;
@@ -112,7 +112,7 @@ tmv:mediumDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
 
 # Define sub-property of skos:definition, i.e. long definition
 tmv:longDefinition rdf:type owl:AnnotationProperty, rdf:Property ;
-					skos:definition "Provide a definition of a concept within a long Paragraph consisting of several sentences."@en ;
+					skos:definition "Provide a definition of a concept within one or several paragraph(s)."@en ;
 					rdfs:label "long definition"@en ;
 					rdfs:subPropertyOf skos:definition ;
 					rdfs:domain skos:Concept ;
