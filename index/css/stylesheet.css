@@ -11,12 +11,18 @@ body {
     padding-bottom: 120px;
 }
 
+a:link {
+    color: rgb(44, 124, 97);
+    text-decoration: underline;
+}
+
 h1,
 h2,
 h3 {
     color: rgb(44, 76, 124);
     font-family: Georgia, 'Times New Roman', Times,"Microsoft YaHei", "微软雅黑", "华文细黑", serif;
     font-weight: bold;
+    margin-left: 10px;
 }
 
 h1 {
@@ -29,7 +35,7 @@ h1.zh {
 
 h2 {
     font-size: 4em;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 h2.zh {
@@ -37,8 +43,56 @@ h2.zh {
 }
 
 h3 {
+    font-size: 3.2em;
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+p.content,li {
     font-size: 3em;
     padding: 5px;
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(44, 76, 124);
+    font-family: Georgia, 'Times New Roman', Times,"Microsoft YaHei", "微软雅黑", "华文细黑", serif;
+}
+
+ul.list, ol.list {
+    padding-left: 20px;
+}
+
+h3.poem {
+    font-size: 4em;
+    font-family: '楷体';
+    text-align: center;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h3.poem_de {
+    font-size: 4em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+hr.end {
+    margin-top: 30px;
+}
+
+hr.divide {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h3>num {
+    font-family: 'Times New Roman';
 }
 
 nav {
@@ -89,4 +143,32 @@ footer {
     margin-right: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+gray {
+    color: gray;
+}
+
+red {
+    color: red;
+}
+
+orange {
+    color: rgb(255, 85, 0);
+}
+
+blue {
+    color: rgb(77, 195, 255);
+}
+
+green {
+    color: rgb(85, 255, 0)
+}
+
+gray,red,orange,blue,green {
+    text-shadow:-1px 0 black,0 1px black,1px 0 black,0 -1px black;
+}
+
+underline {
+    text-decoration: underline;
 }
