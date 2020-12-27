@@ -1,0 +1,1430 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>学习笔记第02章第02节_环境搭建</title>
+    <link href='./css/css.css'
+        rel='stylesheet' type='text/css' />
+    <style type='text/css'>
+        html {
+            overflow-x: initial !important;
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --select-text-bg-color: #B5D6FC;
+            --select-text-font-color: auto;
+            --monospace: "Lucida Console", Consolas, "Courier", monospace;
+            --title-bar-height: 20px;
+        }
+
+        .mac-os-11 {
+            --title-bar-height: 28px;
+        }
+
+        html {
+            font-size: 14px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: auto;
+            bottom: 0px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            font-size: 1rem;
+            line-height: 1.42857;
+            overflow-x: hidden;
+            background: inherit;
+            tab-size: 4;
+        }
+
+        iframe {
+            margin: auto;
+        }
+
+        a.url {
+            word-break: break-all;
+        }
+
+        a:active,
+        a:hover {
+            outline: 0px;
+        }
+
+        .in-text-selection,
+        ::selection {
+            text-shadow: none;
+            background: var(--select-text-bg-color);
+            color: var(--select-text-font-color);
+        }
+
+        #write {
+            margin: 0px auto;
+            height: auto;
+            width: inherit;
+            word-break: normal;
+            overflow-wrap: break-word;
+            position: relative;
+            white-space: normal;
+            overflow-x: visible;
+            padding-top: 36px;
+        }
+
+        #write.first-line-indent p {
+            text-indent: 2em;
+        }
+
+        #write.first-line-indent li p,
+        #write.first-line-indent p * {
+            text-indent: 0px;
+        }
+
+        #write.first-line-indent li {
+            margin-left: 2em;
+        }
+
+        .for-image #write {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        body.typora-export {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .typora-export .footnote-line,
+        .typora-export li,
+        .typora-export p {
+            white-space: pre-wrap;
+        }
+
+        .typora-export .task-list-item input {
+            pointer-events: none;
+        }
+
+        @media screen and (max-width: 500px) {
+            body.typora-export {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            #write {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .CodeMirror-sizer {
+                margin-left: 0px !important;
+            }
+
+            .CodeMirror-gutters {
+                display: none !important;
+            }
+        }
+
+        #write li>figure:last-child {
+            margin-bottom: 0.5rem;
+        }
+
+        #write ol,
+        #write ul {
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            vertical-align: middle;
+            image-orientation: from-image;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            color: inherit;
+            font: inherit;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            line-height: normal;
+            padding: 0px;
+        }
+
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+        }
+
+        #write h1,
+        #write h2,
+        #write h3,
+        #write h4,
+        #write h5,
+        #write h6,
+        #write p,
+        #write pre {
+            width: inherit;
+        }
+
+        #write h1,
+        #write h2,
+        #write h3,
+        #write h4,
+        #write h5,
+        #write h6,
+        #write p {
+            position: relative;
+        }
+
+        p {
+            line-height: inherit;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            break-after: avoid-page;
+            break-inside: avoid;
+            orphans: 4;
+        }
+
+        p {
+            orphans: 4;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+        }
+
+        h4 {
+            font-size: 1.4rem;
+        }
+
+        h5 {
+            font-size: 1.2rem;
+        }
+
+        h6 {
+            font-size: 1rem;
+        }
+
+        .md-math-block,
+        .md-rawblock,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .md-blockmeta {
+            color: rgb(204, 204, 204);
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        sup.md-footnote {
+            padding: 2px 4px;
+            background-color: rgba(238, 238, 238, 0.7);
+            color: rgb(85, 85, 85);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        sup.md-footnote a,
+        sup.md-footnote a:hover {
+            color: inherit;
+            text-transform: inherit;
+            text-decoration: inherit;
+        }
+
+        #write input[type="checkbox"] {
+            cursor: pointer;
+            width: inherit;
+            height: inherit;
+        }
+
+        figure {
+            overflow-x: auto;
+            margin: 1.2em 0px;
+            max-width: calc(100% + 16px);
+            padding: 0px;
+        }
+
+        figure>table {
+            margin: 0px;
+        }
+
+        tr {
+            break-inside: avoid;
+            break-after: auto;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0px;
+            width: 100%;
+            overflow: auto;
+            break-inside: auto;
+            text-align: left;
+        }
+
+        table.md-table td {
+            min-width: 32px;
+        }
+
+        .CodeMirror-gutters {
+            border-right: 0px;
+            background-color: inherit;
+        }
+
+        .CodeMirror-linenumber {
+            user-select: none;
+        }
+
+        .CodeMirror {
+            text-align: left;
+        }
+
+        .CodeMirror-placeholder {
+            opacity: 0.3;
+        }
+
+        .CodeMirror pre {
+            padding: 0px 4px;
+        }
+
+        .CodeMirror-lines {
+            padding: 0px;
+        }
+
+        div.hr:focus {
+            cursor: none;
+        }
+
+        #write pre {
+            white-space: pre-wrap;
+        }
+
+        #write.fences-no-line-wrapping pre {
+            white-space: pre;
+        }
+
+        #write pre.ty-contain-cm {
+            white-space: normal;
+        }
+
+        .CodeMirror-gutters {
+            margin-right: 4px;
+        }
+
+        .md-fences {
+            font-size: 0.9rem;
+            display: block;
+            break-inside: avoid;
+            text-align: left;
+            overflow: visible;
+            white-space: pre;
+            background: inherit;
+            position: relative !important;
+        }
+
+        .md-diagram-panel {
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+            padding-top: 0px;
+            padding-bottom: 8px;
+            overflow-x: auto;
+        }
+
+        #write .md-fences.mock-cm {
+            white-space: pre-wrap;
+        }
+
+        .md-fences.md-fences-with-lineno {
+            padding-left: 0px;
+        }
+
+        #write.fences-no-line-wrapping .md-fences.mock-cm {
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .md-fences.mock-cm.md-fences-with-lineno {
+            padding-left: 8px;
+        }
+
+        .CodeMirror-line,
+        twitterwidget {
+            break-inside: avoid;
+        }
+
+        .footnotes {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .footnotes+.footnotes {
+            margin-top: 0px;
+        }
+
+        .md-reset {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+            outline: 0px;
+            vertical-align: top;
+            background: 0px 0px;
+            text-decoration: none;
+            text-shadow: none;
+            float: none;
+            position: static;
+            width: auto;
+            height: auto;
+            white-space: nowrap;
+            cursor: inherit;
+            -webkit-tap-highlight-color: transparent;
+            line-height: normal;
+            font-weight: 400;
+            text-align: left;
+            box-sizing: content-box;
+            direction: ltr;
+        }
+
+        li div {
+            padding-top: 0px;
+        }
+
+        blockquote {
+            margin: 1rem 0px;
+        }
+
+        li .mathjax-block,
+        li p {
+            margin: 0.5rem 0px;
+        }
+
+        li blockquote {
+            margin: 1rem 0px;
+        }
+
+        li {
+            margin: 0px;
+            position: relative;
+        }
+
+        blockquote> :last-child {
+            margin-bottom: 0px;
+        }
+
+        blockquote> :first-child,
+        li> :first-child {
+            margin-top: 0px;
+        }
+
+        .footnotes-area {
+            color: rgb(136, 136, 136);
+            margin-top: 0.714rem;
+            padding-bottom: 0.143rem;
+            white-space: normal;
+        }
+
+        #write .footnote-line {
+            white-space: pre-wrap;
+        }
+
+        @media print {
+
+            body,
+            html {
+                border: 1px solid transparent;
+                height: 99%;
+                break-after: avoid;
+                break-before: avoid;
+                font-variant-ligatures: no-common-ligatures;
+            }
+
+            #write {
+                margin-top: 0px;
+                padding-top: 0px;
+                border-color: transparent !important;
+            }
+
+            .typora-export * {
+                -webkit-print-color-adjust: exact;
+            }
+
+            .typora-export #write {
+                break-after: avoid;
+            }
+
+            .typora-export #write::after {
+                height: 0px;
+            }
+
+            .is-mac table {
+                break-inside: avoid;
+            }
+        }
+
+        .footnote-line {
+            margin-top: 0.714em;
+            font-size: 0.7em;
+        }
+
+        a img,
+        img a {
+            cursor: pointer;
+        }
+
+        pre.md-meta-block {
+            font-size: 0.8rem;
+            min-height: 0.8rem;
+            white-space: pre-wrap;
+            background: rgb(204, 204, 204);
+            display: block;
+            overflow-x: hidden;
+        }
+
+        p>.md-image:only-child:not(.md-img-error) img,
+        p>img:only-child {
+            display: block;
+            margin: auto;
+        }
+
+        #write.first-line-indent p>.md-image:only-child:not(.md-img-error) img {
+            left: -2em;
+            position: relative;
+        }
+
+        p>.md-image:only-child {
+            display: inline-block;
+            width: 100%;
+        }
+
+        #write .MathJax_Display {
+            margin: 0.8em 0px 0px;
+        }
+
+        .md-math-block {
+            width: 100%;
+        }
+
+        .md-math-block:not(:empty)::after {
+            display: none;
+        }
+
+        .MathJax_ref {
+            fill: currentcolor;
+        }
+
+        [contenteditable="true"]:active,
+        [contenteditable="true"]:focus,
+        [contenteditable="false"]:active,
+        [contenteditable="false"]:focus {
+            outline: 0px;
+            box-shadow: none;
+        }
+
+        .md-task-list-item {
+            position: relative;
+            list-style-type: none;
+        }
+
+        .task-list-item.md-task-list-item {
+            padding-left: 0px;
+        }
+
+        .md-task-list-item>input {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            margin-left: -1.2em;
+            margin-top: calc(1em - 10px);
+            border: none;
+        }
+
+        .math {
+            font-size: 1rem;
+        }
+
+        .md-toc {
+            min-height: 3.58rem;
+            position: relative;
+            font-size: 0.9rem;
+            border-radius: 10px;
+        }
+
+        .md-toc-content {
+            position: relative;
+            margin-left: 0px;
+        }
+
+        .md-toc-content::after,
+        .md-toc::after {
+            display: none;
+        }
+
+        .md-toc-item {
+            display: block;
+            color: rgb(65, 131, 196);
+        }
+
+        .md-toc-item a {
+            text-decoration: none;
+        }
+
+        .md-toc-inner:hover {
+            text-decoration: underline;
+        }
+
+        .md-toc-inner {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .md-toc-h1 .md-toc-inner {
+            margin-left: 0px;
+            font-weight: 700;
+        }
+
+        .md-toc-h2 .md-toc-inner {
+            margin-left: 2em;
+        }
+
+        .md-toc-h3 .md-toc-inner {
+            margin-left: 4em;
+        }
+
+        .md-toc-h4 .md-toc-inner {
+            margin-left: 6em;
+        }
+
+        .md-toc-h5 .md-toc-inner {
+            margin-left: 8em;
+        }
+
+        .md-toc-h6 .md-toc-inner {
+            margin-left: 10em;
+        }
+
+        @media screen and (max-width: 48em) {
+            .md-toc-h3 .md-toc-inner {
+                margin-left: 3.5em;
+            }
+
+            .md-toc-h4 .md-toc-inner {
+                margin-left: 5em;
+            }
+
+            .md-toc-h5 .md-toc-inner {
+                margin-left: 6.5em;
+            }
+
+            .md-toc-h6 .md-toc-inner {
+                margin-left: 8em;
+            }
+        }
+
+        a.md-toc-inner {
+            font-size: inherit;
+            font-style: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
+        .footnote-line a:not(.reversefootnote) {
+            color: inherit;
+        }
+
+        .md-attr {
+            display: none;
+        }
+
+        .md-fn-count::after {
+            content: ".";
+        }
+
+        code,
+        pre,
+        samp,
+        tt {
+            font-family: var(--monospace);
+        }
+
+        kbd {
+            margin: 0px 0.1em;
+            padding: 0.1em 0.6em;
+            font-size: 0.8em;
+            color: rgb(36, 39, 41);
+            background: rgb(255, 255, 255);
+            border: 1px solid rgb(173, 179, 185);
+            border-radius: 3px;
+            box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+
+        .md-comment {
+            color: rgb(162, 127, 3);
+            opacity: 0.8;
+            font-family: var(--monospace);
+        }
+
+        code {
+            text-align: left;
+            vertical-align: initial;
+        }
+
+        a.md-print-anchor {
+            white-space: pre !important;
+            border-width: initial !important;
+            border-style: none !important;
+            border-color: initial !important;
+            display: inline-block !important;
+            position: absolute !important;
+            width: 1px !important;
+            right: 0px !important;
+            outline: 0px !important;
+            background: 0px 0px !important;
+            text-decoration: initial !important;
+            text-shadow: initial !important;
+        }
+
+        .md-inline-math .MathJax_SVG .noError {
+            display: none !important;
+        }
+
+        .html-for-mac .inline-math-svg .MathJax_SVG {
+            vertical-align: 0.2px;
+        }
+
+        .md-math-block .MathJax_SVG_Display {
+            text-align: center;
+            margin: 0px;
+            position: relative;
+            text-indent: 0px;
+            max-width: none;
+            max-height: none;
+            min-height: 0px;
+            min-width: 100%;
+            width: auto;
+            overflow-y: hidden;
+            display: block !important;
+        }
+
+        .MathJax_SVG_Display,
+        .md-inline-math .MathJax_SVG_Display {
+            width: auto;
+            margin: inherit;
+            display: inline-block !important;
+        }
+
+        .MathJax_SVG .MJX-monospace {
+            font-family: var(--monospace);
+        }
+
+        .MathJax_SVG .MJX-sans-serif {
+            font-family: sans-serif;
+        }
+
+        .MathJax_SVG {
+            display: inline;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            zoom: 90%;
+            text-indent: 0px;
+            text-align: left;
+            text-transform: none;
+            letter-spacing: normal;
+            word-spacing: normal;
+            overflow-wrap: normal;
+            white-space: nowrap;
+            float: none;
+            direction: ltr;
+            max-width: none;
+            max-height: none;
+            min-width: 0px;
+            min-height: 0px;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .MathJax_SVG * {
+            transition: none 0s ease 0s;
+        }
+
+        .MathJax_SVG_Display svg {
+            vertical-align: middle !important;
+            margin-bottom: 0px !important;
+            margin-top: 0px !important;
+        }
+
+        .os-windows.monocolor-emoji .md-emoji {
+            font-family: "Segoe UI Symbol", sans-serif;
+        }
+
+        .md-diagram-panel>svg {
+            max-width: 100%;
+        }
+
+        [lang="flow"] svg,
+        [lang="mermaid"] svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        [lang="mermaid"] .node text {
+            font-size: 1rem;
+        }
+
+        table tr th {
+            border-bottom: 0px;
+        }
+
+        video {
+            max-width: 100%;
+            display: block;
+            margin: 0px auto;
+        }
+
+        iframe {
+            max-width: 100%;
+            width: 100%;
+            border: none;
+        }
+
+        .highlight td,
+        .highlight tr {
+            border: 0px;
+        }
+
+        mark {
+            background: rgb(255, 255, 0);
+            color: rgb(0, 0, 0);
+        }
+
+        .md-html-inline .md-plain,
+        .md-html-inline strong,
+        mark .md-inline-math,
+        mark strong {
+            color: inherit;
+        }
+
+        mark .md-meta {
+            color: rgb(0, 0, 0);
+            opacity: 0.3 !important;
+        }
+
+        @media print {
+
+            .typora-export h1,
+            .typora-export h2,
+            .typora-export h3,
+            .typora-export h4,
+            .typora-export h5,
+            .typora-export h6 {
+                break-inside: avoid;
+            }
+        }
+
+        .md-diagram-panel .messageText {
+            stroke: none !important;
+        }
+
+        .md-diagram-panel .start-state {
+            fill: var(--node-fill);
+        }
+
+        .md-diagram-panel .edgeLabel rect {
+            opacity: 1 !important;
+        }
+
+        .md-require-zoom-fix foreignobject {
+            font-size: var(--mermaid-font-zoom);
+        }
+
+
+        :root {
+            --side-bar-bg-color: #fafafa;
+            --control-text-color: #777;
+        }
+
+        @include-when-export url(./css/css.css);
+
+        /* open-sans-regular - latin-ext_latin */
+        /* open-sans-italic - latin-ext_latin */
+        /* open-sans-700 - latin-ext_latin */
+        /* open-sans-700italic - latin-ext_latin */
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: rgb(51, 51, 51);
+            line-height: 1.6;
+        }
+
+        #write {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 30px;
+            padding-bottom: 100px;
+        }
+
+        @media only screen and (min-width: 1400px) {
+            #write {
+                max-width: 1024px;
+            }
+        }
+
+        @media only screen and (min-width: 1800px) {
+            #write {
+                max-width: 1200px;
+            }
+        }
+
+        #write>ul:first-child,
+        #write>ol:first-child {
+            margin-top: 30px;
+        }
+
+        a {
+            color: #4183C4;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            position: relative;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            line-height: 1.4;
+            cursor: text;
+        }
+
+        h1:hover a.anchor,
+        h2:hover a.anchor,
+        h3:hover a.anchor,
+        h4:hover a.anchor,
+        h5:hover a.anchor,
+        h6:hover a.anchor {
+            text-decoration: none;
+        }
+
+        h1 tt,
+        h1 code {
+            font-size: inherit;
+        }
+
+        h2 tt,
+        h2 code {
+            font-size: inherit;
+        }
+
+        h3 tt,
+        h3 code {
+            font-size: inherit;
+        }
+
+        h4 tt,
+        h4 code {
+            font-size: inherit;
+        }
+
+        h5 tt,
+        h5 code {
+            font-size: inherit;
+        }
+
+        h6 tt,
+        h6 code {
+            font-size: inherit;
+        }
+
+        h1 {
+            font-size: 2.25em;
+            line-height: 1.2;
+            border-bottom: 1px solid #eee;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            line-height: 1.225;
+            border-bottom: 1px solid #eee;
+        }
+
+        /*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+        h3 {
+            font-size: 1.5em;
+            line-height: 1.43;
+        }
+
+        h4 {
+            font-size: 1.25em;
+        }
+
+        h5 {
+            font-size: 1em;
+        }
+
+        h6 {
+            font-size: 1em;
+            color: #777;
+        }
+
+        p,
+        blockquote,
+        ul,
+        ol,
+        dl,
+        table {
+            margin: 0.8em 0;
+        }
+
+        li>ol,
+        li>ul {
+            margin: 0 0;
+        }
+
+        hr {
+            height: 2px;
+            padding: 0;
+            margin: 16px 0;
+            background-color: #e7e7e7;
+            border: 0 none;
+            overflow: hidden;
+            box-sizing: content-box;
+        }
+
+        li p.first {
+            display: inline-block;
+        }
+
+        ul,
+        ol {
+            padding-left: 30px;
+        }
+
+        ul:first-child,
+        ol:first-child {
+            margin-top: 0;
+        }
+
+        ul:last-child,
+        ol:last-child {
+            margin-bottom: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #dfe2e5;
+            padding: 0 15px;
+            color: #777777;
+        }
+
+        blockquote blockquote {
+            padding-right: 0;
+        }
+
+        table {
+            padding: 0;
+            word-break: initial;
+        }
+
+        table tr {
+            border-top: 1px solid #dfe2e5;
+            margin: 0;
+            padding: 0;
+        }
+
+        table tr:nth-child(2n),
+        thead {
+            background-color: #f8f8f8;
+        }
+
+        table th {
+            font-weight: bold;
+            border: 1px solid #dfe2e5;
+            border-bottom: 0;
+            margin: 0;
+            padding: 6px 13px;
+        }
+
+        table td {
+            border: 1px solid #dfe2e5;
+            margin: 0;
+            padding: 6px 13px;
+        }
+
+        table th:first-child,
+        table td:first-child {
+            margin-top: 0;
+        }
+
+        table th:last-child,
+        table td:last-child {
+            margin-bottom: 0;
+        }
+
+        .CodeMirror-lines {
+            padding-left: 4px;
+        }
+
+        .code-tooltip {
+            box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+            border-top: 1px solid #eef2f2;
+        }
+
+        .md-fences,
+        code,
+        tt {
+            border: 1px solid #e7eaed;
+            background-color: #f8f8f8;
+            border-radius: 3px;
+            padding: 0;
+            padding: 2px 4px 0px 4px;
+            font-size: 0.9em;
+        }
+
+        code {
+            background-color: #f3f4f4;
+            padding: 0 2px 0 2px;
+        }
+
+        .md-fences {
+            margin-bottom: 15px;
+            margin-top: 15px;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+
+
+        .md-task-list-item>input {
+            margin-left: -1.3em;
+        }
+
+        @media print {
+            html {
+                font-size: 13px;
+            }
+
+            table,
+            pre {
+                page-break-inside: avoid;
+            }
+
+            pre {
+                word-wrap: break-word;
+            }
+        }
+
+        .md-fences {
+            background-color: #f8f8f8;
+        }
+
+        #write pre.md-meta-block {
+            padding: 1rem;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            color: #777777;
+            margin-top: 0 !important;
+        }
+
+        .mathjax-block>.code-tooltip {
+            bottom: .375rem;
+        }
+
+        .md-mathjax-midline {
+            background: #fafafa;
+        }
+
+        #write>h3.md-focus:before {
+            left: -1.5625rem;
+            top: .375rem;
+        }
+
+        #write>h4.md-focus:before {
+            left: -1.5625rem;
+            top: .285714286rem;
+        }
+
+        #write>h5.md-focus:before {
+            left: -1.5625rem;
+            top: .285714286rem;
+        }
+
+        #write>h6.md-focus:before {
+            left: -1.5625rem;
+            top: .285714286rem;
+        }
+
+        .md-image>.md-meta {
+            /*border: 1px solid #ddd;*/
+            border-radius: 3px;
+            padding: 2px 0px 0px 4px;
+            font-size: 0.9em;
+            color: inherit;
+        }
+
+        .md-tag {
+            color: #a7a7a7;
+            opacity: 1;
+        }
+
+        .md-toc {
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .sidebar-tabs {
+            border-bottom: none;
+        }
+
+        #typora-quick-open {
+            border: 1px solid #ddd;
+            background-color: #f8f8f8;
+        }
+
+        #typora-quick-open-item {
+            background-color: #FAFAFA;
+            border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        /** focus mode */
+        .on-focus-mode blockquote {
+            border-left-color: rgba(85, 85, 85, 0.12);
+        }
+
+        header,
+        .context-menu,
+        .megamenu-content,
+        footer {
+            font-family: "Segoe UI", "Arial", sans-serif;
+        }
+
+        .file-node-content:hover .file-node-icon,
+        .file-node-content:hover .file-node-open-state {
+            visibility: visible;
+        }
+
+        .mac-seamless-mode #typora-sidebar {
+            background-color: #fafafa;
+            background-color: var(--side-bar-bg-color);
+        }
+
+        .md-lang {
+            color: #b4654d;
+        }
+
+        .html-for-mac .context-menu {
+            --item-hover-bg-color: #E6F0FE;
+        }
+
+        #md-notification .btn {
+            border: 0;
+        }
+
+        .dropdown-menu .divider {
+            border-color: #e5e5e5;
+        }
+
+        .ty-preferences .window-content {
+            background-color: #fafafa;
+        }
+
+        .ty-preferences .nav-group-item.active {
+            color: white;
+            background: #999;
+        }
+
+        :root {
+            --mermaid-font-zoom: 1.77em;
+        }
+
+        .typora-export li,
+        .typora-export p,
+        .typora-export,
+        .footnote-line {
+            white-space: normal;
+        }
+    </style>
+</head>
+
+<body class='typora-export os-windows'>
+    <nav><p><a href="./index.html">目录</a> | <a href="./02_03_BasicGramma.html">下一篇：基础语法</a></p></nav>
+    <div id='write' class=''>
+        <h1><a name="1-java的起源与演变" class="md-header-anchor"></a><span>1. Java的起源与演变</span></h1>
+        <h2><a name="11-起源" class="md-header-anchor"></a><span>1.1 起源</span></h2>
+        <p><span>20世纪90年代，单片式计算机系统诞生，大幅度提升消费性电子产品的智能化程度，这是现代万物互联的物联网的萌芽，Java亦自此始：</span></p>
+        <p><span>1991年，SUN公司成立&quot;Green&quot;小组，由James Gosling领导，目的是开发能在消费电子产品上运行的程序架构；</span></p>
+        <p><span>1992年，因C++过于复杂和庞大，小组去除了C++的指针和内存管理，结合嵌入式系统的实时性要求，开发了&quot;OaK&quot; 面向对象语言，然而不被硬件厂商看好，而最终被搁置；</span>
+        </p>
+        <p><span>1994年，小组看到了浏览器的发展前景，将&quot;OaK&quot;在万维网播种；</span></p>
+        <p><span>1995年，小组开发了Applet——将小程序嵌入网页中执行的技术，其不仅能嵌入网页，更随同网页在网络上进行传输，让更多的程序员看到了这门语言，自此万物生长，&quot;OaK&quot; 更名为
+                &quot;Java&quot;，从此烈火燎原。</span></p>
+        <h2><a name="12-演变" class="md-header-anchor"></a><span>1.2 演变</span></h2>
+        <p><span>1996年1月，SUN公司推出JDK 1.0，包含开发工具和运行环境（核心API、集成API、用户界面API、发布技术、JVM），标志着 Java
+                成为独立开发工具，其代表性技术有JVM（Java虚拟机）、Applet、AWT等；</span></p>
+        <p><span>1997年2月，JDK 1.1推出，其代表性技术有JDBC、JavaBeans、RMI、Jar、内部类和反射；同年4月2日首届Java
+                One大会在美国旧金山召开，参会超过一万人创下历史纪录；同年9月，Java Developer
+                Connection社区成员超过10万，10个最主要的操作系统供应商正式声明将在其产品中使用Java；</span></p>
+        <p><span>1998年，JDK1.2，代表性技术Swing、Java IDL、EJB、Java Plug-in等，第二代Java平台企业版J2EE发布；</span></p>
+        <p><span>1999年，Java体系规范化：J2ME (Java 2 Micro Edition)、J2SE (Java 2 Standard Edition)、J2EE (Java 2 Enterprise
+                Edition)；Java 2平台的发布，标志着Java应用开始普及；同年HotSpot虚拟机发布，成为JDK 1.3之后所有版本的默认虚拟机；</span></p>
+        <p><span>2000年，JDK 1.3、JDK 1.4 和 J2SE 1.3发布，J2SE 1.3 是对 J2SE
+                1.2的补充和扩展，涵盖了数据库、WEB、网络、图形、多媒体、电话、影像等大部分的信息技术领域；</span></p>
+        <p><span>2002年，J2SE 1.4发布；</span></p>
+        <p><span>2004年，J2SE 1.5发布，更名为Java SE 5.0 (1.5.0)，包含了1.0版以来的最重大更新(泛型支持、基本类型自动装箱、改进的循环、枚举类型、格式化I/O及可变参数);</span>
+        </p>
+        <p><span>2005年，Java SE 6发布，版本更名(Java SE、Java EE、Java ME)；</span></p>
+        <p><span>2011年，收购SUN的Oracle发布Java SE 7，引入二进制数、支持字符串的switch、梭形语法、多异常捕抓、自动关闭资源的try语言等新特性；</span></p>
+        <p><span>2014年，发布Java SE 8，引入Lambda表达式；</span></p>
+        <p><span>2017年，发布Java SE 9，升级强化Java模块化系统；</span></p>
+        <p><span>2018年3月，Java SE 10 发布；同年9月，Java SE 11 发布，为第一个长期支持版本(LTS 2026年9月)；</span></p>
+        <p><span>2019年3月，Java SE 12发布；同年9月，Java SE 13 发布，添加了“文本块”；</span></p>
+        <p><span>To Be Continuing...</span></p>
+        <h1><a name="2-java体系与特点" class="md-header-anchor"></a><span>2. Java体系与特点</span></h1>
+        <h2><a name="21-java的体系" class="md-header-anchor"></a><span>2.1 Java的体系</span></h2>
+        <p><span>Java SE (Java Platform, Standard Edition) —— 标准版，各应用平台的基础，桌面开发以及低端商务应用；</span></p>
+        <p><span>Java EE (Java Platform, Enterprise Edition) —— 企业版，以企业为环境而开发应用程序；</span></p>
+        <p><span>Java ME (Java Platform, Micro Edition) —— 微型版，消费产品和嵌入式设备（较少见）</span></p>
+        <h2><a name="22-java的特性" class="md-header-anchor"></a><span>2.2 Java的特性</span></h2>
+        <ul>
+            <li><span>纯面向对象</span></li>
+            <li><span>与平台无关（跨平台），提供了在不同平台下运行的解释环境</span></li>
+            <li><span>健壮的语言，吸收了C/C++的优点</span></li>
+            <li><span>有较高的安全性，自动回收垃圾、强制类型检查、取消指针</span></li>
+        </ul>
+        <h1><a name="3-java跨平台原理" class="md-header-anchor"></a><span>3. Java跨平台原理</span></h1>
+        <p><span>简述：Java源代码(.java)通过编译器编译为Java字节码(.class)，传输给不同平台的JVM进行翻译给相应平台的操作系统，并通过平台的操作系统调用硬件运行。</span></p>
+        <h2><a name="31-java的两种核心机制jvm--gc" class="md-header-anchor"></a><span>3.1 Java的两种核心机制：JVM &amp; GC</span></h2>
+        <h3><a name="311-jvm-java虚拟机" class="md-header-anchor"></a><span>3.1.1 JVM [Java虚拟机]</span></h3>
+        <p><span>JVM可以理解成一个可运行Java字节码的虚拟计算机系统</span></p>
+        <ul>
+            <li><span>它有一个解释器组件，可以实现Java字节码和计算机操作系统之间的通信</span></li>
+            <li><span>对于不同的运行平台，有不同的JVM。</span></li>
+        </ul>
+        <p><span>JVM屏蔽了底层运行平台的差别，实现了“一次编译，随处运行”。</span></p>
+        <h3><a name="312-gc-垃圾回收器" class="md-header-anchor"></a><span>3.1.2 GC [垃圾回收器]</span></h3>
+        <p><span>Java语言消除了程序员回收无用内存空间的责任：JVM提供了一种系统线程跟踪存储空间的分配情况，并在JVM的空闲时，检查并释放可以被释放的存储空间。</span></p>
+        <p><span>GC在Java程序运行过程中自动启动，程序员无法精准控制和干预。</span></p>
+        <h2><a name="32-jdk-java-development-kits" class="md-header-anchor"></a><span>3.2 JDK (Java Development
+                Kits)</span></h2>
+        <p><span>包含JRE (Java Runtime Environment)、工具程序 (Java编译器 javac.exe；Java运行时解释器 java.exe; Java文档化工具 javadoc.exe)与
+                Java API (应用程序编程接口)；</span></p>
+        <p><span>JRE的功能：</span></p>
+        <ul>
+            <li><span>加载代码：由类加载器(class loader)完成；</span></li>
+            <li><span>校验代码：由字节码校验器(byte code verifier)完成；</span></li>
+            <li><span>执行代码：由运行时解释器(runtime interpreter)完成；</span></li>
+        </ul>
+        <h1><a name="4-java程序的类型" class="md-header-anchor"></a><span>4. Java程序的类型</span></h1>
+        <ul>
+            <li><span>命令行程序</span></li>
+            <li><span>GUI程序</span></li>
+            <li><span>Applet程序</span></li>
+            <li><span>J2EE Web应用程序</span></li>
+        </ul>
+        <h1><a name="5语法" class="md-header-anchor"></a><span>5.　语法</span></h1>
+        <h2><a name="51注释" class="md-header-anchor"></a><span>5.1　注释</span></h2>
+        <ul>
+            <li><span>单行注释：// 　注释</span></li>
+            <li><span>多行注释：/* 　注释　*/</span></li>
+            <li><span>文档注释：/** 　注释　*/</span></li>
+        </ul>
+        <h2><a name="52java代码位置" class="md-header-anchor"></a><span>5.2　java代码位置：</span></h2>
+        <p><span>class 必须编写在.java文件中，类名必须与.java文件名相同</span></p>
+        <h2><a name="53-语法规则" class="md-header-anchor"></a><span>5.3 语法规则：</span></h2>
+        <ul>
+            <li><span>严格区分大小写；</span></li>
+            <li><span>自由格式；</span></li>
+            <li><span>代码分为</span><strong><span>结构定义语法</span></strong><span>和</span><strong><span>功能执行语句</span></strong><span>，其中：</span>
+            </li>
+            <li><span>功能执行语句的最后必须用</span><u><strong><span>英文</span></strong></u><span>分号结束。</span></li>
+        </ul>
+        <h1><a name="6-jdk安装心得" class="md-header-anchor"></a><span>6. JDK安装心得</span></h1>
+        <p><span>JDK 11 LTS 版本为任务需要的版本；</span></p>
+        <p><span>从官网下载需要注册，国内网无法注册，需要VPN；</span></p>
+        <p><span>双击安装包安装即可，记下安装路径；</span></p>
+        <p><span>将路径添加到环境变量中：</span></p>
+        <p><span>最好使用单独的JAVA_HOME系统变量引用bin文件夹所在的根目录，然后在Path中使用%JAVA_HOME%\bin的方式引用系统变量并拼接bin路径，这样做的好处是在需要更改Java的JDK时不会误删系统正常运行所依赖的path值。</span>
+        </p>
+        <h1><a name="7-eclipse安装心得" class="md-header-anchor"></a><span>7. eclipse安装心得</span></h1>
+        <p><span>官网下载即可，eclipse是完全免费的软件，Donation页面只是提供为eclipse捐助的入口而已，并不代表软件要收费使用；</span></p>
+        <p><span>无论是exe版本还是zip解压即可用的版本均可；</span></p>
+    </div>
+    <footer><p><a href="./index.html">目录</a> | <a href="./02_03_BasicGramma.html">下一篇：基础语法</a></p></footer>
+</body>
+
+</html>
