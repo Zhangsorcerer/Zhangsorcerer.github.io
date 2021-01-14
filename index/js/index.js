@@ -1,6 +1,6 @@
 // brick animation
 var time = 0;
-console.log(time);
+// console.log(time);
 for (let index = 0; index < 1000; index++) {
     for (i = 0; i <= 14; i++) {
         var brick = '.brick' + i;
@@ -13,7 +13,7 @@ for (let index = 0; index < 1000; index++) {
         });
     }
     time += 0.5;
-    console.log(time);
+    // console.log(time);
     for (i = 14; i >= 0; i--) {
         var brick = '.brick' + i;
         time += 0.25;
@@ -25,7 +25,7 @@ for (let index = 0; index < 1000; index++) {
         });
     }
     time += 0.5;
-    console.log(time);
+    // console.log(time);
 }
 
 // Gear animation
